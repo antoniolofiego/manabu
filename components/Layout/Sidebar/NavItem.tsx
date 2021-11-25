@@ -9,10 +9,8 @@ type NavItemProps = {
 const NavItem: React.FC<NavItemProps> = ({ name, url, children }) => {
 	const router = useRouter();
 	const pageIsActive = (page: string): boolean => {
-		return router.asPath === page;
+		return router.asPath.split('/')[1] === page.split('/')[1];
 	};
-
-	const linkURL = name.toLowerCase();
 
 	return (
 		<Link href={url}>
