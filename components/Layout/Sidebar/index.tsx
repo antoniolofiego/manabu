@@ -12,7 +12,7 @@ import {
 
 const Sidebar = () => {
 	return (
-		<nav className='flex flex-col items-center justify-between w-56 h-screen py-[5vh] border-r border-black'>
+		<nav className='flex flex-col items-center justify-between w-56 h-screen py-[5vh] border-r border-black sticky top-0'>
 			<Logo />
 
 			<ul className='flex flex-col items-center w-full space-y-16'>
