@@ -23,7 +23,7 @@ const Phase: React.FC<PhaseProps> = ({
 	const prompt = progress > 0 ? 'Continue' : 'Get started';
 
 	return (
-		<section className='relative p-8 border border-black dark:border-gray-50 rounded-xl justify-self-stretch'>
+		<section className='relative p-8 border border-gray-900 shadow-lg dark:border-gray-50 rounded-xl justify-self-stretch'>
 			<div className='absolute top-0 right-0 p-8 -m-8'>
 				<ProgressBadge
 					percent={progress}
