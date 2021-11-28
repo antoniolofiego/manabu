@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import Phase from '@components/Phase';
-import SearchBar from '@components/SearchBar';
+import SearchBar from '@components/shared/SearchBar';
 
 import Head from 'next/head';
 import { useRouter } from 'next/router';
