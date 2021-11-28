@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+
 import { useTheme } from 'next-themes';
 
 type ProgressBadgeProps = {
@@ -13,12 +15,23 @@ const ProgressBadge: React.FC<ProgressBadgeProps> = ({
 	strokeWidth = 1,
 	circleColor,
 }) => {
+	const [mounted, setMounted] = useState(false);
+
+	useEffect(() => setMounted(true), []);
+
 	const { resolvedTheme } = useTheme();
 
-	const circleFill = resolvedTheme === 'light' ? 'text-white' : 'text-gray-900';
+	if (!mounted) return null;
+
+	console.log(resolvedTheme);
+
+	const circleFill =
+		resolvedTheme === 'light' ? 'text-gray-50' : 'text-gray-900';
 
 	const strokeFill =
-		resolvedTheme === 'light' ? 'black' : 'rgba(249, 250, 251, 100)';
+		resolvedTheme === 'light'
+			? 'rgba(17, 24, 39, 100)'
+			: 'rgba(249, 250, 251, 100)';
 
 	const MIN_OFFSET = 300; // Ensuring that even when it's 0 there's a minimum portion of circle
 
