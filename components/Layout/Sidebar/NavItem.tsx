@@ -21,7 +21,11 @@ const NavItem: React.FC<NavItemProps> = ({ name, url, children }) => {
 					<span className='absolute left-0 w-2 h-full transition-all -translate-x-4 bg-black group-hover:translate-x-0 dark:bg-gray-50' />
 				)}
 
-				<span className='flex items-center pl-12 space-x-4'>
+				<span
+					className={`flex items-center pl-12 space-x-4 ${
+						pageIsActive(url) ? '' : 'group-hover:font-bold'
+					}`}
+				>
 					{children}
 					<span>{name || 'Home'}</span>
 				</span>
