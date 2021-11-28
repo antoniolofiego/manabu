@@ -7,11 +7,14 @@ const ThemeSwitcherButton: React.FC = () => {
 	return (
 		<button
 			data-testid='themeSwitcher'
+			className='flex items-center w-full text-sm rounded-md group'
 			onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
 		>
-			{resolvedTheme === 'dark' && <SunIcon className='w-8 h-8 text-gray-50' />}
+			{resolvedTheme === 'dark' && (
+				<SunIcon className={'h-6 w-6 text-gray-50'} />
+			)}
 			{resolvedTheme === 'light' && (
-				<MoonIcon className='w-8 h-8 text-gray-900' />
+				<MoonIcon className={'h-6 w-6 text-gray-900'} />
 			)}
 		</button>
 	);
