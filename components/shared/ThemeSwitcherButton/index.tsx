@@ -11,7 +11,7 @@ const ThemeSwitcherButton: React.FC = () => {
 		>
 			{resolvedTheme === 'dark' && <SunIcon className='w-8 h-8 text-gray-50' />}
 			{resolvedTheme === 'light' && (
-				<MoonIcon className='w-8 h-8 text-blue-700' />
+				<MoonIcon className='w-8 h-8 text-gray-900' />
 			)}
 		</button>
 	);
