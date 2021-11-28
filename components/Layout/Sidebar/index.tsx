@@ -1,6 +1,5 @@
 import Logo from '@components/Assets/Logo';
 import Profile from '@components/shared/Profile';
-import ThemeSwitcherButton from '@components/shared/ThemeSwitcherButton';
 import NavItem from './NavItem';
 
 import {
@@ -34,10 +33,7 @@ const Sidebar = () => {
 				</NavItem>
 			</ul>
 
-			<div className='flex space-x-4'>
-				<Profile />
-				<ThemeSwitcherButton />
-			</div>
+			<Profile />
 		</nav>
 	);
 };
