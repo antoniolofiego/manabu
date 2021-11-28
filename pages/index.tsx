@@ -22,7 +22,7 @@ const Home: React.FC = () => {
 				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
-			<main className='flex-1 min-w-0 px-2 overflow-auto bg-indigo-50'>
+			<main className='h-screen bg-indigo-50'>
 				{!loggedIn && (
 					<div>
 						<button onClick={() => setLoggedIn(true)}>logIn</button>
