@@ -28,8 +28,6 @@ const ProgressBadge: React.FC<ProgressBadgeProps> = ({
 
 	const offset = Math.min(circumference - percent * circumference, MIN_OFFSET);
 
-	console.table([resolvedTheme, circleFill]);
-
 	return (
 		<span className='relative flex items-center justify-center flex-shrink'>
 			<span className='z-10 text-2xl'>{percent * 100}%</span>
