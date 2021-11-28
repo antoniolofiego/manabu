@@ -12,6 +12,7 @@
 		"test": "jest"
 	},
 	"dependencies": {
+		"@headlessui/react": "^1.4.2",
 		"@heroicons/react": "^1.0.5",
 		"@tailwindcss/forms": "^0.3.4",
 		"next": "11.0.1",
