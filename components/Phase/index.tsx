@@ -1,6 +1,7 @@
+import ProgressBadge from './ProgressBadge';
+
 import Link from 'next/link';
 import { ArrowRightIcon } from '@heroicons/react/outline';
-import ProgressBadge from './ProgressBadge';
 
 type PhaseProps = {
 	number: number;
@@ -22,9 +23,12 @@ const Phase: React.FC<PhaseProps> = ({
 	const prompt = progress > 0 ? 'Continue' : 'Get started';
 
 	return (
-		<section className='relative p-8 border border-black rounded-xl justify-self-stretch'>
-			<div className='absolute top-0 right-0 p-8 -m-8 bg-white rounded-full'>
-				<ProgressBadge percent={progress} circleColor='text-blue-500' />
+		<section className='relative p-8 border border-black dark:border-gray-50 rounded-xl justify-self-stretch'>
+			<div className='absolute top-0 right-0 p-8 -m-8'>
+				<ProgressBadge
+					percent={progress}
+					circleColor='text-blue-700 dark:text-blue-400'
+				/>
 			</div>
 
 			<div className='mb-8'>

@@ -16,9 +16,9 @@ const NavItem: React.FC<NavItemProps> = ({ name, url, children }) => {
 		<Link href={url}>
 			<a className='relative w-full group'>
 				{pageIsActive(url) ? (
-					<span className='absolute left-0 w-2 h-full bg-black'></span>
+					<span className='absolute left-0 w-2 h-full bg-gray-900 dark:bg-gray-50'></span>
 				) : (
-					<span className='absolute left-0 w-2 h-full transition-all -translate-x-4 bg-black group-hover:translate-x-0' />
+					<span className='absolute left-0 w-2 h-full transition-all -translate-x-4 bg-black group-hover:translate-x-0 dark:bg-gray-50' />
 				)}
 
 				<span className='flex items-center pl-12 space-x-4'>

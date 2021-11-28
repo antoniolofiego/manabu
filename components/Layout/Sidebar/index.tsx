@@ -1,5 +1,6 @@
 import Logo from '@components/Assets/Logo';
 import Profile from '@components/shared/Profile';
+import ThemeSwitcherButton from '@components/shared/ThemeSwitcherButton';
 import NavItem from './NavItem';
 
 import {
@@ -12,7 +13,7 @@ import {
 
 const Sidebar = () => {
 	return (
-		<nav className='flex flex-col items-center justify-between w-56 h-screen py-[5vh] border-r border-black sticky top-0'>
+		<nav className='flex flex-col items-center justify-between w-56 h-screen py-[5vh] border-r border-black sticky top-0 dark:bg-gray-900 dark:text-gray-50'>
 			<Logo />
 
 			<ul className='flex flex-col items-center w-full space-y-16'>
@@ -33,7 +34,10 @@ const Sidebar = () => {
 				</NavItem>
 			</ul>
 
-			<Profile />
+			<div className='flex space-x-4'>
+				<Profile />
+				<ThemeSwitcherButton />
+			</div>
 		</nav>
 	);
 };
