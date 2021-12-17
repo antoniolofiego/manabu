@@ -7,13 +7,13 @@ import Layout from '@components/Layout';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-const Dashboard: React.FC = () => {
+const Home: React.FC = () => {
 	const [loggedIn, setloggedIn] = useState(true);
 	const router = useRouter();
 	return (
 		<>
 			<Head>
-				<title>Dashboard | learntocloud.guide</title>
+				<title>Home | learntocloud.guide</title>
 				<meta
 					name='description'
 					content='Generated with the Batteries Included Next App template'
@@ -66,4 +66,4 @@ const Dashboard: React.FC = () => {
 	);
 };
 
-export default Dashboard;
+export default Home;
