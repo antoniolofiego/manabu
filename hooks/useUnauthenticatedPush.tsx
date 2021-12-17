@@ -1,12 +1,11 @@
-import { useState } from 'react';
 import { useRouter } from 'next/router';
+import useSupabase from '@hooks/useSupabase';
 
 const useUnauthenticatedPush = () => {
-	// TODO: replace fixed state with Supabase session
-	const [loggedIn] = useState(true);
+	const { session } = useSupabase();
 	const router = useRouter();
 
-	if (!loggedIn) {
+	if (!session) {
 		router.push('/login');
 	}
 };
