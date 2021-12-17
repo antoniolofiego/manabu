@@ -1,15 +1,14 @@
-import { useState } from 'react';
-
 import Phase from '@components/Phase';
 import SearchBar from '@components/shared/SearchBar';
 import Layout from '@components/Layout';
+
+import useUnauthenticatedPush from '@hooks/useUnauthenticatedPush';
 
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 const Home: React.FC = () => {
-	const [loggedIn, setloggedIn] = useState(true);
-	const router = useRouter();
+	useUnauthenticatedPush();
 	return (
 		<>
 			<Head>
