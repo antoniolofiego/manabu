@@ -27,8 +27,8 @@ const NavItem: React.FC<NavItemProps> = ({ name, url, children }) => {
 				<span
 					className={`flex items-center pl-12 space-x-4 ${
 						pageIsActive(url)
-							? 'text-gray-200'
-							: 'active: translate-px group-hover:text-gray-200'
+							? 'dark:text-gray-200'
+							: 'active: translate-px dark:group-hover:text-gray-200 group-hover:text-gray-800'
 					}`}
 				>
 					{children}
