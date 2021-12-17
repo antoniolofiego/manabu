@@ -1,18 +1,34 @@
 import Phase from '@components/Phase';
 import SearchBar from '@components/shared/SearchBar';
 import Layout from '@components/Layout';
+import Head from 'next/head';
 
+import { supabase } from '@utils/supabase';
 import useUnauthenticatedPush from '@hooks/useUnauthenticatedPush';
 
-import Head from 'next/head';
-import { useRouter } from 'next/router';
-
 const Home: React.FC = () => {
-	useUnauthenticatedPush();
-	return (
+	const loggedIn = useUnauthenticatedPush(true);
+
+	const user = supabase.auth.user();
+	console.log(user);
+
+	let username: string;
+
+	switch (user?.app_metadata.provider) {
+		case 'discord':
+			username = user?.user_metadata.name;
+			break;
+		case 'github':
+			username = user?.user_metadata.user_name;
+		default:
+			username = 'friend';
+			break;
+	}
+
+	return loggedIn ? (
 		<>
 			<Head>
-				<title>Home | learntocloud.guide</title>
+				<title>Home | LearnToCloud</title>
 				<meta
 					name='description'
 					content='Generated with the Batteries Included Next App template'
@@ -24,9 +40,9 @@ const Home: React.FC = () => {
 				<div className='grid items-center px-12 mx-auto space-y-16 max-w-7xl'>
 					<SearchBar />
 					<h2 className='text-2xl font-extrabold justify-self-center lg:justify-self-start'>
-						Hello, Katherine
+						Hello, {username}
 					</h2>
-					<div className='grid w-full gap-12 mx-auto lg:mx-0 lg:max-w-full lg:grid-cols-2 lg:grid-rows-2'>
+					<ul className='grid w-full gap-12 mx-auto lg:mx-0 lg:max-w-full lg:grid-cols-2 lg:grid-rows-2'>
 						<Phase
 							number={1}
 							name='Linux & networking'
@@ -55,13 +71,15 @@ const Home: React.FC = () => {
 							progress={0.0}
 							url='devops-concepts'
 						/>
-					</div>
+					</ul>
 					<h2 className='text-2xl font-extrabold'>
 						Looking for something to do?
 					</h2>
 				</div>
 			</Layout>
 		</>
+	) : (
+		<p>Unathorized!</p>
 	);
 };
 
