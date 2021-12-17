@@ -1,17 +1,20 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { useSupabase } from '@utils/supabase';
 
 const Home: React.FC = () => {
-	const [loggedIn] = useState(false);
+	const { session } = useSupabase();
 	const router = useRouter();
 
-	if (loggedIn) {
-		router.push('/dashboard');
-	}
+	useEffect(() => {
+		if (!!session) {
+			router.push('/home');
+		}
 
-	if (!loggedIn) {
-		router.push('/login');
-	}
+		if (!session) {
+			router.push('/login');
+		}
+	}, [router, session]);
 
 	return <></>;
 };
