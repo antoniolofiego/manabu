@@ -1,4 +1,4 @@
-import Layout from '@components/Layout';
+import { useState } from 'react';
 
 import '@styles/tailwind.css';
 
@@ -9,9 +9,7 @@ import { ThemeProvider } from 'next-themes';
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<ThemeProvider attribute='class' defaultTheme='system'>
-			<Layout>
-				<Component {...pageProps} />
-			</Layout>
+			<Component {...pageProps} />
 		</ThemeProvider>
 	);
 }
