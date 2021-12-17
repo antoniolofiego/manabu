@@ -1,5 +1,5 @@
 {
-	"name": "next-ts-boilerplate",
+	"name": "app.learntocloud.guide",
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
@@ -12,7 +12,7 @@
 	"dependencies": {
 		"@headlessui/react": "^1.4.2",
 		"@heroicons/react": "^1.0.5",
-		"@tailwindcss/forms": "^0.3.4",
+		"@tailwindcss/forms": "^0.4.0",
 		"next": "11.0.1",
 		"next-themes": "^0.0.15",
 		"react": "17.0.2",
