@@ -12,18 +12,23 @@ const NavItem: React.FC<NavItemProps> = ({ name, url, children }) => {
 		return router.asPath.split('/')[1] === page.split('/')[1];
 	};
 
+	const inactiveStyles =
+		'transition-all origin-left scale-0 group-hover:scale-100 duration-200';
+
 	return (
 		<Link href={url}>
-			<a className='relative w-full group'>
-				{pageIsActive(url) ? (
-					<span className='absolute left-0 w-2 h-full bg-gray-900 dark:bg-gray-50'></span>
-				) : (
-					<span className='absolute left-0 w-2 h-full transition-all -translate-x-4 bg-black group-hover:translate-x-0 dark:bg-gray-50' />
-				)}
+			<a className='relative w-full group active:translate-y-px'>
+				<span
+					className={`absolute left-0 w-2 h-full bg-gray-900 dark:bg-gray-50 rounded-r-lg ${
+						!pageIsActive(url) && inactiveStyles
+					}`}
+				/>
 
 				<span
 					className={`flex items-center pl-12 space-x-4 ${
-						pageIsActive(url) ? '' : 'group-hover:font-bold'
+						pageIsActive(url)
+							? 'text-gray-200'
+							: 'active: translate-px group-hover:text-gray-200'
 					}`}
 				>
 					{children}
