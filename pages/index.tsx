@@ -1,36 +1,19 @@
-import { useState, useEffect } from 'react';
-import Head from 'next/head';
+import { useState } from 'react';
 import { useRouter } from 'next/router';
 
 const Home: React.FC = () => {
-	const [loggedIn, setLoggedIn] = useState(false);
+	const [loggedIn] = useState(false);
 	const router = useRouter();
 
-	useEffect(() => {
-		if (loggedIn) {
-			router.push('/dashboard');
-		}
-	}, [loggedIn, router]);
+	if (loggedIn) {
+		router.push('/dashboard');
+	}
 
-	return (
-		<>
-			<Head>
-				<title>learntocloud.guide</title>
-				<meta
-					name='description'
-					content='Generated with the Batteries Included Next App template'
-				/>
-				<link rel='icon' href='/favicon.ico' />
-			</Head>
-			<main className='h-screen bg-indigo-50'>
-				{!loggedIn && (
-					<div>
-						<button onClick={() => setLoggedIn(true)}>logIn</button>
-					</div>
-				)}
-			</main>
-		</>
-	);
+	if (!loggedIn) {
+		router.push('/login');
+	}
+
+	return <></>;
 };
 
 export default Home;
