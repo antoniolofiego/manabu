@@ -7,8 +7,6 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
-		"css:dev": "cross-env TAILWIND_MODE=watch postcss ./styles/tailwind.css -o ./styles/globals.css --watch",
-		"css:build": "cross-env postcss ./styles/tailwind.css -o ./styles/globals.css",
 		"test": "jest"
 	},
 	"dependencies": {
@@ -28,7 +26,7 @@
 		"@types/aria-query": "^5.0.0",
 		"@types/babel__generator": "^7.6.3",
 		"@types/react": "17.0.15",
-		"autoprefixer": "^10.3.1",
+		"autoprefixer": "^10.4.0",
 		"babel-jest": "^27.0.6",
 		"cross-env": "^7.0.3",
 		"eslint": "7.32.0",
@@ -36,9 +34,8 @@
 		"jest": "^27.0.6",
 		"jest-dom": "^4.0.0",
 		"node-mocks-http": "^1.10.1",
-		"postcss": "^8.3.6",
-		"postcss-cli": "^8.3.1",
-		"tailwindcss": "^2.2.7",
+		"postcss": "^8.4.5",
+		"tailwindcss": "^3.0.6",
 		"ts-jest": "^27.0.4",
 		"ts-loader": "^9.2.5",
 		"typescript": "4.3.5"
