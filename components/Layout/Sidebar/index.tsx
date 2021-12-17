@@ -16,7 +16,7 @@ const Sidebar = () => {
 			<Logo />
 
 			<ul className='flex flex-col items-center w-full space-y-16'>
-				<NavItem name='Home' url='/dashboard'>
+				<NavItem name='Home' url='/home'>
 					<HomeIcon className='h-8' />
 				</NavItem>
 				<NavItem name='Guide' url='/guide'>
