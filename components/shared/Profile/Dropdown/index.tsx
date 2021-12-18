@@ -79,14 +79,14 @@ const Dropdown: React.FC<DropdownProps> = ({ children }) => {
 				<div className='p-1'>
 					<Menu.Item>
 						{({ active }) => (
-							<div
+							<button
 								className={`${
 									active && 'bg-gray-300 dark:bg-gray-800'
 								} group flex rounded-md items-center w-full px-2 py-2 text-sm`}
 								onClick={signOut}
 							>
 								Sign out
-							</div>
+							</button>
 						)}
 					</Menu.Item>
 				</div>
