@@ -23,8 +23,6 @@ const ProgressBadge: React.FC<ProgressBadgeProps> = ({
 
 	if (!mounted) return null;
 
-	console.log(resolvedTheme);
-
 	const circleFill =
 		resolvedTheme === 'light' ? 'text-gray-50' : 'text-gray-900';
 
