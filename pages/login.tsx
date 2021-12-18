@@ -14,7 +14,6 @@ const Login = () => {
 
 	useEffect(() => {
 		const user = supabase.auth.user() || null;
-		console.log(user);
 
 		if (!!user) {
 			router.push('/home');
