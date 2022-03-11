@@ -1,32 +1,32 @@
-import Phase from '@components/shared/Phase';
+import Progress from '@components/shared/Progress';
 
 const PhaseGroup = () => {
   return (
     <ul className='grid w-full gap-12 mx-auto lg:mx-0 lg:max-w-full lg:grid-cols-2 lg:grid-rows-2'>
-      <Phase
-        number={1}
+      <Progress
         name='Linux & networking'
+        instructor='Bill Nye'
         stage='3. Introduction to Networking'
         progress={0.5}
         url='intro-to-networking'
       />
-      <Phase
-        number={2}
+      <Progress
         name='Programming & Scripting'
+        instructor='Michael Myers'
         stage='2. Automation with Python'
         progress={0.33}
         url='automation-with-python'
       />
-      <Phase
-        number={3}
+      <Progress
         name='Cloud Platforms'
+        instructor='Corey Quinn'
         stage='1. Cloud Service Providers'
         progress={0.0}
         url='cloud-service-providers'
       />
-      <Phase
-        number={4}
+      <Progress
         name='DevOps Fundamentals'
+        instructor='Paris Hilton'
         stage='1. DevOps concepts'
         progress={0.0}
         url='devops-concepts'
