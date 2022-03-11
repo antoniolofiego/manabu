@@ -3,15 +3,10 @@ import SearchBar from '@components/shared/SearchBar';
 import Layout from '@components/Layout';
 import Head from 'next/head';
 
-import { supabase } from '@utils/supabase';
-import useUnauthenticatedPush from '@hooks/useUnauthenticatedPush';
+import { useUser } from '@context/user';
 
 const Home: React.FC = () => {
-  const loggedIn = useUnauthenticatedPush(true);
-
-  const user = supabase.auth.user();
-  console.log(user);
-
+  const { user } = useUser();
   let username: string;
 
   switch (user?.app_metadata.provider) {
@@ -25,7 +20,7 @@ const Home: React.FC = () => {
       break;
   }
 
-  return loggedIn ? (
+  return (
     <>
       <Head>
         <title>Home | LearnToCloud</title>
@@ -49,8 +44,6 @@ const Home: React.FC = () => {
         </>
       </Layout>
     </>
-  ) : (
-    <p>Unathorized!</p>
   );
 };
 

@@ -1,22 +1,22 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { useSupabase } from '@utils/supabase';
+import { useUser } from '@context/user';
 
 const Home: React.FC = () => {
-	const { session } = useSupabase();
-	const router = useRouter();
+  const { user } = useUser();
+  const router = useRouter();
 
-	useEffect(() => {
-		if (!!session) {
-			router.push('/home');
-		}
+  useEffect(() => {
+    if (!!user) {
+      router.push('/home');
+    }
 
-		if (!session) {
-			router.push('/login');
-		}
-	}, [router, session]);
+    if (!user) {
+      router.push('/login');
+    }
+  }, [router, user]);
 
-	return <></>;
+  return <></>;
 };
 
 export default Home;
