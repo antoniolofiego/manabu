@@ -21,7 +21,7 @@ const Login = () => {
   return (
     <>
       <Head>
-        <title>Login | LearnToCloud</title>
+        <title>Login | manabu</title>
       </Head>
       <div className='relative flex flex-col items-center justify-center h-screen min-w-0 space-y-8 bg-gray-50 dark:bg-gray-900'>
         <Logo className='text-4xl text-gray-900 dark:text-gray-50' />

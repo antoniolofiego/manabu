@@ -23,7 +23,7 @@ const Home: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Home | LearnToCloud</title>
+        <title>Home | manabu</title>
         <meta
           name='description'
           content='Generated with the Batteries Included Next App template'
