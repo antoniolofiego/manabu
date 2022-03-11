@@ -1,33 +1,26 @@
-import { useState, useEffect } from 'react';
-
 import Image from 'next/image';
 import Dropdown from './Dropdown';
-import { supabase } from '@utils/supabase';
+import { useUser } from '@context/user';
 
 const Profile = () => {
-	const [imgUrl, setImgUrl] = useState('');
+  const { user } = useUser();
 
-	useEffect(() => {
-		const user = supabase.auth.user();
-		setImgUrl(user?.user_metadata.avatar_url);
-	}, []);
-
-	return (
-		<div className='flex flex-col'>
-			<Dropdown>
-				<div className='relative w-24 h-24 overflow-hidden rounded-full'>
-					{imgUrl && (
-						<Image
-							alt='profile picture'
-							src={imgUrl}
-							layout='fill'
-							objectFit='cover'
-						/>
-					)}
-				</div>
-			</Dropdown>
-		</div>
-	);
+  return (
+    <div className='flex flex-col'>
+      <Dropdown>
+        <div className='relative w-24 h-24 overflow-hidden rounded-full'>
+          {user && (
+            <Image
+              alt='profile picture'
+              src={user?.user_metadata.avatar_url}
+              layout='fill'
+              objectFit='cover'
+            />
+          )}
+        </div>
+      </Dropdown>
+    </div>
+  );
 };
 
 export default Profile;
