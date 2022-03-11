@@ -6,14 +6,18 @@ import axios from 'axios';
 
 type ContextType = {
   user: User | null;
-  login: (email: string) => void;
+  loginEmail: (email: string) => void;
+  loginDiscord: () => void;
+  loginGithub: () => void;
   logout: () => void;
   isLoading: boolean | null;
 };
 
 const Context = createContext<ContextType>({
   user: null,
-  login: () => {},
+  loginEmail: () => {},
+  loginDiscord: () => {},
+  loginGithub: () => {},
   logout: () => {},
   isLoading: false,
 });
@@ -25,7 +29,7 @@ const UserProvider: React.FC = ({ children }) => {
 
   useEffect(() => {
     const getUserProfile = async () => {
-      const sessionUser = await supabase.auth.user();
+      const sessionUser = supabase.auth.user();
 
       if (sessionUser) {
         const { data: profile } = await supabase
@@ -72,9 +76,21 @@ const UserProvider: React.FC = ({ children }) => {
     }
   }, [user]);
 
-  const login = async (email: string) => {
+  const loginEmail = async (email: string) => {
     await supabase.auth.signIn({
       email: email,
+    });
+  };
+
+  const loginDiscord = async () => {
+    await supabase.auth.signIn({
+      provider: 'discord',
+    });
+  };
+
+  const loginGithub = async () => {
+    await supabase.auth.signIn({
+      provider: 'github',
     });
   };
 
@@ -86,7 +102,9 @@ const UserProvider: React.FC = ({ children }) => {
 
   const exposed = {
     user,
-    login,
+    loginEmail,
+    loginDiscord,
+    loginGithub,
     logout,
     isLoading,
   };
