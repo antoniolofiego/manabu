@@ -20,7 +20,8 @@
       "@pages/*": ["pages/*"],
       "@hooks/*": ["hooks/*"],
       "@utils/*": ["utils/*"],
-      "@context/*": ["context/*"]
+      "@context/*": ["context/*"],
+      "@mocks/*": ["__mocks__/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
