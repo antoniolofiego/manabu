@@ -1,7 +1,16 @@
 import { FaChalkboardTeacher } from 'react-icons/fa';
 
-const Logo = () => {
-  return <FaChalkboardTeacher className='text-7xl' />;
+interface LogoProps {
+  className: string;
+}
+
+const Logo: React.FC<LogoProps> = ({ className, ...props }) => {
+  return (
+    <div className='flex items-center space-x-4' {...props}>
+      <FaChalkboardTeacher className={className} />
+      <p className={`${className} font-mono`}>Manabu</p>
+    </div>
+  );
 };
 
 export default Logo;
