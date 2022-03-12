@@ -14,7 +14,7 @@ import {
 import { useUser } from '@context/user';
 
 export const Sidebar = () => {
-  const { user } = useUser();
+  const { user, isLoading } = useUser();
 
   return (
     <nav className='flex flex-col items-center justify-between w-56 h-screen py-[5vh] border-r transition-all border-gray-900 dark:border-gray-50 sticky top-0 z-20'>
@@ -37,6 +37,8 @@ export const Sidebar = () => {
           <NavItem name='Settings' url='/settings'>
             <CogIcon className='h-8' />
           </NavItem>
+        ) : isLoading ? (
+          <NavItem loading />
         ) : (
           <NavItem name='Login' url='/login'>
             <LoginIcon className='h-8' />

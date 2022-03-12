@@ -1,13 +1,31 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { FaSpinner } from 'react-icons/fa';
 
-type NavItemProps = {
-  name: string;
-  url: string;
-};
+interface NavItemProps {
+  name?: string;
+  url?: string;
+  loading?: boolean;
+}
 
-const NavItem: React.FC<NavItemProps> = ({ name, url, children }) => {
+const NavItem: React.FC<NavItemProps> = ({
+  name = '',
+  url = '',
+  loading,
+  children,
+}) => {
   const router = useRouter();
+
+  if (loading)
+    return (
+      <div className='w-full'>
+        <span className='flex items-center space-x-4 pl-14'>
+          <FaSpinner className='h-8 animate-spin' />
+          <span className='w-20 h-4 bg-gray-800 animate-pulse rounded-xl' />
+        </span>
+      </div>
+    );
+
   const pageIsActive = (page: string): boolean => {
     return router.asPath.split('/')[1] === page.split('/')[1];
   };
