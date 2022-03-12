@@ -10,7 +10,7 @@ type ContextType = {
   loginDiscord: () => void;
   loginGithub: () => void;
   logout: () => void;
-  isLoading: boolean | null;
+  isLoading: boolean;
 };
 
 const Context = createContext<ContextType>({
@@ -24,11 +24,12 @@ const Context = createContext<ContextType>({
 
 const UserProvider: React.FC = ({ children }) => {
   const [user, setUser] = useState(supabase.auth.user());
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
     const getUserProfile = async () => {
+      setIsLoading(true);
       const sessionUser = supabase.auth.user();
 
       if (sessionUser) {
@@ -42,9 +43,8 @@ const UserProvider: React.FC = ({ children }) => {
           ...sessionUser,
           ...profile,
         });
-
-        setIsLoading(false);
       }
+      setIsLoading(false);
     };
 
     getUserProfile();
