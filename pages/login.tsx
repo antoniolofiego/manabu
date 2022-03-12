@@ -1,14 +1,16 @@
+import { useEffect } from 'react';
+
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+
 import { Logo } from '@components/assets';
 import { ThemeSwitcherButton } from '@components/elements';
 import { SocialLogin } from '@components/sections';
-import Head from 'next/head';
-import Link from 'next/link';
 
 import { HomeIcon } from '@heroicons/react/outline';
 
 import { useUser } from '@context/user';
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
 
 import type { NextPage } from 'next';
 
