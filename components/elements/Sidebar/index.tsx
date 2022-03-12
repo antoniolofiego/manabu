@@ -33,12 +33,12 @@ export const Sidebar = () => {
         <NavItem name='Resources' url='/resources'>
           <CollectionIcon className='h-8' />
         </NavItem>
-        {user ? (
+        {isLoading ? (
+          <NavItem loading />
+        ) : user ? (
           <NavItem name='Settings' url='/settings'>
             <CogIcon className='h-8' />
           </NavItem>
-        ) : isLoading ? (
-          <NavItem loading />
         ) : (
           <NavItem name='Login' url='/login'>
             <LoginIcon className='h-8' />
