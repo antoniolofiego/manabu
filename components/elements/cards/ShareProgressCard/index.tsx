@@ -2,10 +2,10 @@ import { SpeakerphoneIcon } from '@heroicons/react/outline';
 
 export const ShareProgressCard = () => {
   return (
-    <section>
-      <div className='flex items-center'>
+    <section className='p-8 space-y-2 border rounded-xl'>
+      <div className='flex items-center gap-2'>
         <SpeakerphoneIcon className='h-8' />
-        <h3>Share your progress</h3>
+        <h3 className='text-xl'>Share your progress</h3>
       </div>
     </section>
   );
