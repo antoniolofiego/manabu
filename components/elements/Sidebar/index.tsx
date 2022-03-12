@@ -27,7 +27,7 @@ export const Sidebar = () => {
         <NavItem name='Courses' url='/courses'>
           <MapIcon className='h-8' />
         </NavItem>
-        <NavItem name='Projects' url='/projects'>
+        <NavItem name='Instructors' url='/instructors'>
           <LightBulbIcon className='h-8' />
         </NavItem>
         <NavItem name='Resources' url='/resources'>
