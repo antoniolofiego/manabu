@@ -13,7 +13,7 @@ import {
 
 import { useUser } from '@context/user';
 
-const Sidebar = () => {
+export const Sidebar = () => {
   const { user } = useUser();
 
   return (
@@ -48,5 +48,3 @@ const Sidebar = () => {
     </nav>
   );
 };
-
-export default Sidebar;
