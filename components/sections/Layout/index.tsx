@@ -1,4 +1,4 @@
-import Sidebar from './Sidebar';
+import Sidebar from '../../elements/Sidebar';
 import { ThemeSwitcherButton } from '@components/elements';
 
 type LayoutProps = { children: JSX.Element };
