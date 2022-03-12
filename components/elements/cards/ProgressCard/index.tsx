@@ -7,20 +7,20 @@ interface ProgressCardProps {
   name: string;
   courseID: string;
   instructor: string;
+  instructorID: string;
   stage: string;
   progress: number;
   url: string;
-  // isCompleted: boolean;
 }
 
 export const ProgressCard: React.FC<ProgressCardProps> = ({
   name,
   courseID,
   instructor,
+  instructorID,
   stage,
   progress,
   url,
-  // isCompleted,
 }) => {
   const prompt = progress > 0 ? 'Continue' : 'Get started';
 
@@ -40,11 +40,18 @@ export const ProgressCard: React.FC<ProgressCardProps> = ({
           </a>
         </Link>
 
-        <h3 className='text-xl font-bold'>by {instructor}</h3>
+        <h3 className='text-lg font-bold'>
+          by{' '}
+          <Link href={`/instructors/${instructorID}}`}>
+            <a className='text-lg transition dark:hover:text-gray-400 hover:text-gray-500'>
+              {instructor}
+            </a>
+          </Link>
+        </h3>
       </div>
 
       <div className='space-y-2'>
-        <h3 className='text-lg font-medium'>{stage}</h3>
+        <h3 className='font-medium'>{stage}</h3>
         <Link href={`/courses/${courseID}}/${url}`}>
           <a className='flex items-center space-x-2 group'>
             <span className='transition dark:group-hover:text-gray-400 group-hover:text-gray-500'>
