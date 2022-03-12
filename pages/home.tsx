@@ -35,14 +35,17 @@ const Home: NextPage = () => {
 
       <Layout>
         <>
-          <SearchBar />
-          <div className='grid items-center px-12 mx-auto space-y-16 max-w-7xl'>
-            <h2 className='text-2xl font-extrabold '>Hello, {username}</h2>
-            <ProgressGroup />
-            <h2 className='text-2xl font-extrabold'>
-              Looking for something to do?
-            </h2>
-            <CardGroup />
+          <div className='grid items-center px-12 mx-auto space-y-12 max-w-7xl'>
+            <div className='space-y-8'>
+              <h2 className='text-2xl font-extrabold '>Hello, {username}</h2>
+              <ProgressGroup />
+            </div>
+            <div className='space-y-8'>
+              <h2 className='text-2xl font-extrabold'>
+                Looking for something to do?
+              </h2>
+              <CardGroup />
+            </div>
           </div>
         </>
       </Layout>
