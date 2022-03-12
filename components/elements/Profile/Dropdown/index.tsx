@@ -20,11 +20,7 @@ const LinkTag: React.FC<LinkTagProps> = (props) => {
   );
 };
 
-type DropdownProps = {
-  children: React.ReactNode;
-};
-
-const Dropdown: React.FC<DropdownProps> = ({ children }) => {
+const Dropdown: React.FC = ({ children }) => {
   const router = useRouter();
 
   const { logout } = useUser();
