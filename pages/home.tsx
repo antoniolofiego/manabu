@@ -34,7 +34,7 @@ const Home: NextPage = () => {
 
       <Layout>
         <>
-          <div className='grid items-center px-12 mx-auto space-y-12 max-w-7xl'>
+          <div className='mx-auto space-y-12'>
             <h2 className=''>Hello, {username}</h2>
             <ProgressGroup />
             <CardGroup />
