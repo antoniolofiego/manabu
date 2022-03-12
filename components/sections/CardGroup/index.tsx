@@ -2,7 +2,7 @@ import {
   ProjectCard,
   ArticleCard,
   ShareProgressCard,
-} from '@components/shared/';
+} from '@components/elements';
 
 export const CardGroup = () => {
   return (

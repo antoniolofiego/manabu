@@ -1,5 +1,5 @@
 import { Logo } from '@components/assets/';
-import { ThemeSwitcherButton } from '@components/shared/';
+import { ThemeSwitcherButton } from '@components/elements';
 import Head from 'next/head';
 
 import { BsGithub, BsDiscord } from 'react-icons/bs';

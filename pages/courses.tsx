@@ -1,4 +1,4 @@
-import { Layout } from '@components/shared';
+import { Layout } from '@components/elements';
 
 import type { NextPage } from 'next';
 

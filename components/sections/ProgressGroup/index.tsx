@@ -1,4 +1,4 @@
-import { Progress } from '@components/shared/';
+import { Progress } from '@components/elements';
 
 export const ProgressGroup = () => {
   return (

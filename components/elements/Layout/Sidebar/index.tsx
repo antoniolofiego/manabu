@@ -1,5 +1,5 @@
 import { Logo } from '@components/assets/';
-import { Profile } from '@components/shared/';
+import { Profile } from '@components/elements';
 import NavItem from './NavItem';
 
 import {

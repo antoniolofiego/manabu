@@ -1,5 +1,5 @@
 import Sidebar from './Sidebar';
-import { ThemeSwitcherButton } from '@components/shared/';
+import { ThemeSwitcherButton } from '@components/elements';
 
 type LayoutProps = { children: JSX.Element };
 
