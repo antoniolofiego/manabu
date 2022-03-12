@@ -6,7 +6,7 @@ import {
 
 export const CardGroup = () => {
   return (
-    <div className='flex'>
+    <div className='grid grid-cols-3'>
       <ProjectCard />
       <ArticleCard />
       <ShareProgressCard />
