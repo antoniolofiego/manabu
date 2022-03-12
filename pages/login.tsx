@@ -4,7 +4,6 @@ import { SocialLogin } from '@components/sections';
 import Head from 'next/head';
 import Link from 'next/link';
 
-import { BsGithub, BsDiscord } from 'react-icons/bs';
 import { HomeIcon } from '@heroicons/react/outline';
 
 import { useUser } from '@context/user';
@@ -15,7 +14,7 @@ import type { NextPage } from 'next';
 
 const Login: NextPage = () => {
   const router = useRouter();
-  const { user, loginGithub, loginDiscord } = useUser();
+  const { user } = useUser();
 
   useEffect(() => {
     if (user) {
