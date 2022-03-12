@@ -9,15 +9,13 @@ export const Profile = () => {
     <div className='flex flex-col'>
       <Dropdown>
         <div className='relative w-24 h-24 overflow-hidden rounded-full'>
-          {user ? (
+          {user && (
             <Image
               alt='profile picture'
               src={user?.user_metadata.avatar_url}
               layout='fill'
               objectFit='cover'
             />
-          ) : (
-            <span />
           )}
         </div>
       </Dropdown>
