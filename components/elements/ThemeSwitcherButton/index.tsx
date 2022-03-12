@@ -1,4 +1,4 @@
-import { MoonIcon, SunIcon } from '@heroicons/react/solid';
+import { MoonIcon, SunIcon } from '@heroicons/react/outline';
 import { useTheme } from 'next-themes';
 
 type ThemeSwitcherButtonProps = {
