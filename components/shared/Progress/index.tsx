@@ -5,6 +5,7 @@ import { ArrowRightIcon } from '@heroicons/react/outline';
 
 interface ProgressProps {
   name: string;
+  courseID: string;
   instructor: string;
   stage: string;
   progress: number;
@@ -14,6 +15,7 @@ interface ProgressProps {
 
 const Progress: React.FC<ProgressProps> = ({
   name,
+  courseID,
   instructor,
   stage,
   progress,
@@ -38,7 +40,7 @@ const Progress: React.FC<ProgressProps> = ({
 
       <div className='space-y-2'>
         <h3 className='text-lg font-medium'>{stage}</h3>
-        <Link href={`/course/name/${url}`}>
+        <Link href={`/courses/${courseID}}/${url}`}>
           <a className='flex items-center space-x-2 group'>
             <span>{prompt}</span>
             <ArrowRightIcon className='h-5 transition-all translate-x-0 group-hover:translate-x-2 ' />
