@@ -46,7 +46,8 @@ export const ProgressCard: React.FC<ProgressCardProps> = ({
                 src={imageUrl}
                 layout='fill'
                 alt='Course image'
-                className='[mask-image:_linear-gradient(to_left,_rgba(0,0,0,1),_rgba(0,0,0,0.2),_rgba(0,0,0,0))] object-cover'
+                objectFit='cover'
+                className='[mask-image:_linear-gradient(to_left,_rgba(0,0,0,1),_rgba(0,0,0,0.2),_rgba(0,0,0,0))]'
               />
             </div>
           )}
