@@ -24,7 +24,7 @@ const Sidebar = () => {
         <NavItem name='Home' url='/home'>
           <HomeIcon className='h-8' />
         </NavItem>
-        <NavItem name='Guide' url='/guide'>
+        <NavItem name='Courses' url='/courses'>
           <MapIcon className='h-8' />
         </NavItem>
         <NavItem name='Projects' url='/projects'>
