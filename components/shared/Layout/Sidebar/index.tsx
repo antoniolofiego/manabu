@@ -1,4 +1,4 @@
-import Logo from '@components/Assets/Logo';
+import Logo from '@components/assets/Logo';
 import Profile from '@components/shared/Profile';
 import NavItem from './NavItem';
 
