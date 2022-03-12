@@ -3,7 +3,7 @@ import ProgressBadge from './ProgressBadge';
 import Link from 'next/link';
 import { ArrowRightIcon } from '@heroicons/react/outline';
 
-interface ProgressProps {
+interface ProgressCardProps {
   name: string;
   courseID: string;
   instructor: string;
@@ -13,7 +13,7 @@ interface ProgressProps {
   // isCompleted: boolean;
 }
 
-export const Progress: React.FC<ProgressProps> = ({
+export const ProgressCard: React.FC<ProgressCardProps> = ({
   name,
   courseID,
   instructor,
