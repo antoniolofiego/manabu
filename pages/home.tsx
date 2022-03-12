@@ -36,9 +36,7 @@ const Home: NextPage = () => {
         <>
           <div className='grid items-center px-12 mx-auto space-y-12 max-w-7xl'>
             <h2 className=''>Hello, {username}</h2>
-            <div className='space-y-8'>
-              <ProgressGroup />
-            </div>
+            <ProgressGroup />
             <CardGroup />
           </div>
         </>
