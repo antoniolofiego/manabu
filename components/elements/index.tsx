@@ -1,6 +1,6 @@
 export {
   ArticleCard,
-  ProjectCard,
+  FindACourseCard,
   ProgressCard,
   ShareProgressCard,
 } from './cards';

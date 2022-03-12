@@ -1,5 +1,5 @@
 import {
-  ProjectCard,
+  FindACourseCard,
   ArticleCard,
   ShareProgressCard,
 } from '@components/elements';
@@ -7,7 +7,7 @@ import {
 export const CardGroup = () => {
   return (
     <div className='grid grid-cols-3 gap-8'>
-      <ProjectCard />
+      <FindACourseCard />
       <ArticleCard />
       <ShareProgressCard />
     </div>
