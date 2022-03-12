@@ -17,10 +17,12 @@ export const Sidebar = () => {
   const { user, isLoading } = useUser();
 
   return (
-    <nav className='flex flex-col items-center justify-between w-56 h-screen py-[5vh] border-r transition-all border-gray-900 dark:border-gray-50 sticky top-0 z-20'>
-      <Logo className='text-3xl' />
+    <nav className='sticky top-0 z-20 grid items-center justify-center w-56 h-screen transition-all border-r border-gray-900 grid-rows-8 dark:border-gray-50'>
+      <div className='self-center row-span-2'>
+        <Logo className='text-3xl' />
+      </div>
 
-      <ul className='flex flex-col items-center w-full space-y-16'>
+      <ul className='flex flex-col items-center w-full row-span-4 space-y-16'>
         <NavItem name='Home' url='/home'>
           <HomeIcon className='h-8' />
         </NavItem>
@@ -46,7 +48,9 @@ export const Sidebar = () => {
         )}
       </ul>
 
-      <Profile />
+      <div className='row-span-2 justify-self-center'>
+        <Profile />
+      </div>
     </nav>
   );
 };
