@@ -4,12 +4,12 @@ import Link from 'next/link';
 
 import { useUser } from '@context/user';
 
-type LinkTagProps = {
+interface LinkTagProps {
   href: string;
   children: React.ReactNode;
   className: string;
   rest?: any;
-};
+}
 
 const LinkTag: React.FC<LinkTagProps> = (props) => {
   let { href, children, ...rest } = props;
