@@ -28,7 +28,7 @@ const Home: NextPage = () => {
         <title>Home | manabu</title>
         <meta
           name='description'
-          content='Generated with the Batteries Included Next App template'
+          content='manabu is a community-based learning platform, where all courses are free and open source.'
         />
         <link rel='icon' href='/favicon.ico' />
       </Head>
