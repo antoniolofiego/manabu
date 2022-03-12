@@ -11,7 +11,7 @@ const Home: React.FC = () => {
 
   switch (user?.app_metadata.provider) {
     case 'discord':
-      username = user?.user_metadata.name;
+      username = user?.user_metadata.full_name;
       break;
     case 'github':
       username = user?.user_metadata.user_name;
