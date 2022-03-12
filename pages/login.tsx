@@ -1,5 +1,5 @@
-import Logo from '@components/Assets/Logo';
-import ThemeSwitcherButton from '@components/shared/ThemeSwitcherButton';
+import { Logo } from '@components/assets/';
+import { ThemeSwitcherButton } from '@components/shared/';
 import Head from 'next/head';
 
 import { BsGithub, BsDiscord } from 'react-icons/bs';
@@ -8,7 +8,9 @@ import { useUser } from '@context/user';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
-const Login = () => {
+import type { NextPage } from 'next';
+
+const Login: NextPage = () => {
   const router = useRouter();
   const { user, loginGithub, loginDiscord } = useUser();
 

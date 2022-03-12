@@ -26,7 +26,7 @@ export const ArticleCard = () => {
   );
 };
 
-export const ProgressCard = () => {
+export const ShareProgressCard = () => {
   return (
     <section>
       <div className='flex items-center'>

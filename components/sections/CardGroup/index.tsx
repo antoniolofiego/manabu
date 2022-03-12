@@ -1,13 +1,15 @@
-import * as Cards from '@components/shared/Card';
+import {
+  ProjectCard,
+  ArticleCard,
+  ShareProgressCard,
+} from '@components/shared/';
 
-const CardGroup = () => {
+export const CardGroup = () => {
   return (
     <div className='flex'>
-      <Cards.ProjectCard />
-      <Cards.ArticleCard />
-      <Cards.ProgressCard />
+      <ProjectCard />
+      <ArticleCard />
+      <ShareProgressCard />
     </div>
   );
 };
-
-export default CardGroup;

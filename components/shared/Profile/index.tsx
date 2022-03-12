@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Dropdown from './Dropdown';
 import { useUser } from '@context/user';
 
-const Profile = () => {
+export const Profile = () => {
   const { user } = useUser();
 
   return (
@@ -22,5 +22,3 @@ const Profile = () => {
     </div>
   );
 };
-
-export default Profile;

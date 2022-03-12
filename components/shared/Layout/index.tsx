@@ -1,9 +1,9 @@
 import Sidebar from './Sidebar';
-import ThemeSwitcherButton from '@components/shared/ThemeSwitcherButton';
+import { ThemeSwitcherButton } from '@components/shared/';
 
 type LayoutProps = { children: JSX.Element };
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className='relative flex min-h-screen transition-all bg-gray-50 dark:bg-gray-900 dark:text-gray-50'>
       <Sidebar />
@@ -14,5 +14,3 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     </div>
   );
 };
-
-export default Layout;

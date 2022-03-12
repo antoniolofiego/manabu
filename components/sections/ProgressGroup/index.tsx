@@ -1,6 +1,6 @@
-import Progress from '@components/shared/Progress';
+import { Progress } from '@components/shared/';
 
-const PhaseGroup = () => {
+export const ProgressGroup = () => {
   return (
     <ul className='grid w-full gap-12 mx-auto lg:mx-0 lg:max-w-full lg:grid-cols-2 lg:grid-rows-2'>
       <Progress
@@ -38,5 +38,3 @@ const PhaseGroup = () => {
     </ul>
   );
 };
-
-export default PhaseGroup;

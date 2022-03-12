@@ -13,7 +13,7 @@ interface ProgressProps {
   // isCompleted: boolean;
 }
 
-const Progress: React.FC<ProgressProps> = ({
+export const Progress: React.FC<ProgressProps> = ({
   name,
   courseID,
   instructor,
@@ -50,5 +50,3 @@ const Progress: React.FC<ProgressProps> = ({
     </section>
   );
 };
-
-export default Progress;

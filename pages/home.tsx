@@ -1,11 +1,13 @@
-import PhaseGroup from '@components/sections/PhaseGroup';
-import SearchBar from '@components/shared/SearchBar';
-import Layout from '@components/Layout';
+import { ProgressGroup, CardGroup } from '@components/sections';
+import { SearchBar, Layout } from '@components/shared';
 import Head from 'next/head';
 
-import { useUser } from '@context/user';
+import type { NextPage } from 'next';
 
-const Home: React.FC = () => {
+import { useUser } from '@context/user';
+import React from 'react';
+
+const Home: NextPage = () => {
   const { user } = useUser();
   let username: string;
 
@@ -36,10 +38,11 @@ const Home: React.FC = () => {
           <SearchBar />
           <div className='grid items-center px-12 mx-auto space-y-16 max-w-7xl'>
             <h2 className='text-2xl font-extrabold '>Hello, {username}</h2>
-            <PhaseGroup />
+            <ProgressGroup />
             <h2 className='text-2xl font-extrabold'>
               Looking for something to do?
             </h2>
+            <CardGroup />
           </div>
         </>
       </Layout>

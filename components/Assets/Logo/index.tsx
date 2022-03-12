@@ -4,7 +4,7 @@ interface LogoProps {
   className: string;
 }
 
-const Logo: React.FC<LogoProps> = ({ className, ...props }) => {
+export const Logo: React.FC<LogoProps> = ({ className, ...props }) => {
   return (
     <div className='flex items-center space-x-4' {...props}>
       <FaChalkboardTeacher className={className} />
@@ -12,5 +12,3 @@ const Logo: React.FC<LogoProps> = ({ className, ...props }) => {
     </div>
   );
 };
-
-export default Logo;
