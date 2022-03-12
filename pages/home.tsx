@@ -7,20 +7,6 @@ import { useUser } from '@context/user';
 import React from 'react';
 
 const Home: NextPage = () => {
-  const { user } = useUser();
-  let username: string;
-
-  switch (user?.app_metadata.provider) {
-    case 'discord':
-      username = user?.user_metadata.full_name;
-      break;
-    case 'github':
-      username = user?.user_metadata.user_name;
-    default:
-      username = 'friend';
-      break;
-  }
-
   return (
     <>
       <Head>
@@ -35,7 +21,6 @@ const Home: NextPage = () => {
       <Layout>
         <>
           <div className='mx-auto space-y-12'>
-            <h2 className=''>Hello, {username}</h2>
             <ProgressGroup />
             <CardGroup />
           </div>
