@@ -19,12 +19,10 @@ const Home: NextPage = () => {
       </Head>
 
       <Layout>
-        <>
-          <div className='mx-auto space-y-12'>
-            <ProgressGroup />
-            <CardGroup />
-          </div>
-        </>
+        <div className='mx-auto space-y-12'>
+          <ProgressGroup />
+          <CardGroup />
+        </div>
       </Layout>
     </>
   );
