@@ -1,5 +1,4 @@
 import { ProgressGroup, CardGroup, Layout } from '@components/sections';
-import { SearchBar } from '@components/elements';
 import Head from 'next/head';
 
 import type { NextPage } from 'next';
