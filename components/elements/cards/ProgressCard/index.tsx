@@ -34,7 +34,12 @@ export const ProgressCard: React.FC<ProgressCardProps> = ({
       </div>
 
       <div className='mb-8'>
-        <h2 className='text-2xl'>{name}</h2>
+        <Link href={`/courses/${courseID}}`}>
+          <a className='text-2xl transition dark:hover:text-gray-400 hover:text-gray-500'>
+            {name}
+          </a>
+        </Link>
+
         <h3 className='text-xl font-bold'>by {instructor}</h3>
       </div>
 
@@ -42,8 +47,10 @@ export const ProgressCard: React.FC<ProgressCardProps> = ({
         <h3 className='text-lg font-medium'>{stage}</h3>
         <Link href={`/courses/${courseID}}/${url}`}>
           <a className='flex items-center space-x-2 group'>
-            <span>{prompt}</span>
-            <ArrowRightIcon className='h-5 transition-all translate-x-0 group-hover:translate-x-2 ' />
+            <span className='transition dark:group-hover:text-gray-400 group-hover:text-gray-500'>
+              {prompt}
+            </span>
+            <ArrowRightIcon className='h-5 transition-all translate-x-0 group-hover:translate-x-2 dark:group-hover:text-gray-400 group-hover:text-gray-500' />
           </a>
         </Link>
       </div>
