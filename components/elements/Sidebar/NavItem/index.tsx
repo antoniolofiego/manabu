@@ -2,13 +2,19 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { FaSpinner } from 'react-icons/fa';
 
-interface NavItemProps {
-  name?: string;
-  url?: string;
-  loading?: boolean;
+interface LoadedNav {
+  name: string;
+  url: string;
+  loading?: never;
 }
 
-const NavItem: React.FC<NavItemProps> = ({
+interface LoadingNav {
+  name?: never;
+  url?: never;
+  loading: boolean;
+}
+
+const NavItem: React.FC<LoadedNav | LoadingNav> = ({
   name = '',
   url = '',
   loading,
