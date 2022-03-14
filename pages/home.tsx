@@ -3,7 +3,6 @@ import Head from 'next/head';
 
 import type { NextPage } from 'next';
 
-import { useUser } from '@context/user';
 import React from 'react';
 
 const Home: NextPage = () => {
