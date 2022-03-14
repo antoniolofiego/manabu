@@ -1,5 +1,10 @@
 export { EnrollButton, MarkAsCompleteButton } from './buttons';
-export { FindACourseCard, ProgressCard, ShareProgressCard } from './cards';
+export {
+  FindACourseCard,
+  ProgressCard,
+  ShareProgressCard,
+  LessonCard,
+} from './cards';
 export { InstructorBadge } from './InstructorBadge';
 export { NavItem } from './NavItem';
 export { UserProfile } from './UserProfile';
