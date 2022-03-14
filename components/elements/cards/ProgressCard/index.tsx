@@ -9,7 +9,7 @@ interface ProgressCardProps {
   courseID: string;
   instructor: string;
   instructorID: string;
-  stage: string;
+  lessonName: string;
   progress: number;
   url: string;
   imageUrl?: string;
@@ -20,7 +20,7 @@ export const ProgressCard: React.FC<ProgressCardProps> = ({
   courseID,
   instructor,
   instructorID,
-  stage,
+  lessonName,
   progress,
   url,
   imageUrl,
@@ -68,7 +68,7 @@ export const ProgressCard: React.FC<ProgressCardProps> = ({
           </h3>
         </div>
         <div className='space-y-2'>
-          <h3 className='font-medium'>{stage}</h3>
+          <h3 className='font-medium'>{lessonName}</h3>
           <Link href={`/courses/${courseID}/${url}`}>
             <a className='flex items-center space-x-2 group'>
               <span className='transition dark:group-hover:text-gray-400 group-hover:text-gray-500'>

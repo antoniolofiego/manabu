@@ -71,7 +71,7 @@ export const ProgressGroup = () => {
                   courseID={lesson.courseId}
                   instructor={lesson.instructorName}
                   instructorID={lesson.instructorId}
-                  stage={`${lesson.lessonNumber}. ${lesson.name}`}
+                  lessonName={`${lesson.lessonNumber}. ${lesson.name}`}
                   progress={lesson.progress}
                   url={lesson.id}
                   imageUrl={lesson.imageUrl}
