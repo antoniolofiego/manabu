@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
+import { ErrorBoundary, useErrorHandler } from 'react-error-boundary';
 
 import { ProgressCard } from '@components/elements';
-import { ErrorBoundary, useErrorHandler } from 'react-error-boundary';
 
 import { supabase } from '@utils/supabase';
 import { useUser } from '@context/user';
