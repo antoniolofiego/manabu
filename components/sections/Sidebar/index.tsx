@@ -1,6 +1,5 @@
 import { Logo } from '@components/assets/';
-import { UserProfile } from '@components/elements';
-import NavItem from './NavItem';
+import { UserProfile, NavItem } from '@components/elements';
 
 import {
   HomeIcon,

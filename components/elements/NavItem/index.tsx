@@ -14,7 +14,7 @@ interface ILoadingNav {
   loading: boolean;
 }
 
-const NavItem: React.FC<ILoadedNav | ILoadingNav> = ({
+export const NavItem: React.FC<ILoadedNav | ILoadingNav> = ({
   name = '',
   url = '',
   loading,
@@ -62,5 +62,3 @@ const NavItem: React.FC<ILoadedNav | ILoadingNav> = ({
     </Link>
   );
 };
-
-export default NavItem;
