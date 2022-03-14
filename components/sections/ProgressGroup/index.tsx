@@ -44,43 +44,46 @@ export const ProgressGroup = () => {
   }, [user, handleError]);
 
   return (
-    user &&
-    lessons.length > 0 && (
-      <div className='space-y-8'>
-        <h2 className='text-2xl font-extrabold'>Your courses</h2>
+    <>
+      {user
+        ? lessons.length > 0 && (
+            <div className='space-y-8'>
+              <h2 className='text-2xl font-extrabold'>Your courses</h2>
 
-        <ul className='grid w-full gap-12 px-8 mx-auto lg:mx-0 lg:max-w-full lg:grid-cols-2'>
-          <ErrorBoundary
-            fallback={
-              <p>
-                We had troubles loading your courses!{' '}
-                <span
-                  className='font-bold transition cursor-pointer hover:text-gray-700 dark:hover:text-gray-400'
-                  onClick={() => location.reload()}
+              <ul className='grid w-full gap-12 px-8 mx-auto lg:mx-0 lg:max-w-full lg:grid-cols-2'>
+                <ErrorBoundary
+                  fallback={
+                    <p>
+                      We had troubles loading your courses!{' '}
+                      <span
+                        className='font-bold transition cursor-pointer hover:text-gray-700 dark:hover:text-gray-400'
+                        onClick={() => location.reload()}
+                      >
+                        Please try refreshing.
+                      </span>
+                    </p>
+                  }
                 >
-                  Please try refreshing.
-                </span>
-              </p>
-            }
-          >
-            {lessons.map((lesson) => {
-              return (
-                <ProgressCard
-                  key={lesson.id}
-                  name={lesson.courseName}
-                  courseID={lesson.courseId}
-                  instructor={lesson.instructorName}
-                  instructorID={lesson.instructorId}
-                  lessonName={`${lesson.lessonNumber}. ${lesson.name}`}
-                  progress={lesson.progress}
-                  url={lesson.id}
-                  imageUrl={lesson.imageUrl}
-                />
-              );
-            })}
-          </ErrorBoundary>
-        </ul>
-      </div>
-    )
+                  {lessons.map((lesson) => {
+                    return (
+                      <ProgressCard
+                        key={lesson.id}
+                        name={lesson.courseName}
+                        courseID={lesson.courseId}
+                        instructor={lesson.instructorName}
+                        instructorID={lesson.instructorId}
+                        lessonName={`${lesson.lessonNumber}. ${lesson.name}`}
+                        progress={lesson.progress}
+                        url={lesson.id}
+                        imageUrl={lesson.imageUrl}
+                      />
+                    );
+                  })}
+                </ErrorBoundary>
+              </ul>
+            </div>
+          )
+        : null}
+    </>
   );
 };
