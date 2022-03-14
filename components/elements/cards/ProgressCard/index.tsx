@@ -53,7 +53,7 @@ export const ProgressCard: React.FC<ProgressCardProps> = ({
           )}
         </div>
         <div className='mb-8'>
-          <Link href={`/courses/${courseID}}`}>
+          <Link href={`/courses/${courseID}`}>
             <a className='text-2xl transition dark:hover:text-gray-400 hover:text-gray-500'>
               {name}
             </a>
@@ -69,7 +69,7 @@ export const ProgressCard: React.FC<ProgressCardProps> = ({
         </div>
         <div className='space-y-2'>
           <h3 className='font-medium'>{stage}</h3>
-          <Link href={`/courses/${courseID}}/${url}`}>
+          <Link href={`/courses/${courseID}/${url}`}>
             <a className='flex items-center space-x-2 group'>
               <span className='transition dark:group-hover:text-gray-400 group-hover:text-gray-500'>
                 {prompt}
