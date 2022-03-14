@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Dropdown from './Dropdown';
 import { useUser } from '@context/user';
 
-export const Profile = () => {
+export const UserProfile = () => {
   const { user } = useUser();
 
   return (

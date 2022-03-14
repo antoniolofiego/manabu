@@ -1,4 +1,5 @@
-import { ThemeSwitcherButton, SearchBar, Sidebar } from '@components/elements';
+import { ThemeSwitcherButton, SearchBar } from '@components/elements';
+import { Sidebar } from '@components/sections';
 
 type LayoutProps = { children: JSX.Element };
 

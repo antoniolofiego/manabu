@@ -1,5 +1,5 @@
 import { Logo } from '@components/assets/';
-import { Profile } from '@components/elements';
+import { UserProfile } from '@components/elements';
 import NavItem from './NavItem';
 
 import {
@@ -46,7 +46,7 @@ export const Sidebar = () => {
       </ul>
 
       <div className='flex items-center h-1/4'>
-        <Profile />
+        <UserProfile />
       </div>
     </nav>
   );
