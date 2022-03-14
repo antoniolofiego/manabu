@@ -21,7 +21,6 @@ const CoursePage: NextPage<ICoursePageProps> = ({
   instructor,
   lessons,
 }) => {
-  console.log(course);
   return (
     <Layout>
       <div className='space-y-8'>
