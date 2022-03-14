@@ -32,9 +32,6 @@ export const Sidebar = () => {
         <NavItem name='Instructors' url='/instructors'>
           <LightBulbIcon className='h-8' />
         </NavItem>
-        <NavItem name='Resources' url='/resources'>
-          <CollectionIcon className='h-8' />
-        </NavItem>
         {isLoading ? (
           <NavItem loading />
         ) : user ? (
