@@ -8,6 +8,7 @@ import type { LessonProgress } from '@types';
 
 export const ProgressGroup = () => {
   const [lessons, setLessons] = useState<LessonProgress[]>([]);
+
   const { user } = useUser();
   console.log(user?.id);
 
