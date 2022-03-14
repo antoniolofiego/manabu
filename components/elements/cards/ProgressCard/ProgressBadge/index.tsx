@@ -2,14 +2,14 @@ import { useState, useEffect } from 'react';
 
 import { useTheme } from 'next-themes';
 
-interface ProgressBadgeProps {
+interface IProgressBadgeProps {
   percent: number;
   width?: number;
   strokeWidth?: number;
   circleColor: string;
 }
 
-const ProgressBadge: React.FC<ProgressBadgeProps> = ({
+const ProgressBadge: React.FC<IProgressBadgeProps> = ({
   percent,
   width = 100,
   strokeWidth = 1,

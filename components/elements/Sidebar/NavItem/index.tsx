@@ -2,19 +2,19 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { FaSpinner } from 'react-icons/fa';
 
-interface LoadedNav {
+interface ILoadedNav {
   name: string;
   url: string;
   loading?: never;
 }
 
-interface LoadingNav {
+interface ILoadingNav {
   name?: never;
   url?: never;
   loading: boolean;
 }
 
-const NavItem: React.FC<LoadedNav | LoadingNav> = ({
+const NavItem: React.FC<ILoadedNav | ILoadingNav> = ({
   name = '',
   url = '',
   loading,

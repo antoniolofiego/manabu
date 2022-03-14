@@ -4,14 +4,14 @@ import Link from 'next/link';
 
 import { useUser } from '@context/user';
 
-interface LinkTagProps {
+interface ILinkTagProps {
   href: string;
   children: React.ReactNode;
   className: string;
   rest?: any;
 }
 
-const LinkTag: React.FC<LinkTagProps> = (props) => {
+const LinkTag: React.FC<ILinkTagProps> = (props) => {
   let { href, children, ...rest } = props;
   return (
     <Link href={href}>

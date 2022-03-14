@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRightIcon } from '@heroicons/react/outline';
 
-interface ProgressCardProps {
+interface IProgressCardProps {
   name: string;
   courseID: string;
   instructor: string;
@@ -15,7 +15,7 @@ interface ProgressCardProps {
   imageUrl?: string;
 }
 
-export const ProgressCard: React.FC<ProgressCardProps> = ({
+export const ProgressCard: React.FC<IProgressCardProps> = ({
   name,
   courseID,
   instructor,

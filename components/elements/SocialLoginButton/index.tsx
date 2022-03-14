@@ -3,7 +3,7 @@ import { useUser } from '@context/user';
 
 import type { IconType } from 'react-icons';
 
-interface SocialLoginProps {
+interface ISocialLoginProps {
   provider: string;
 }
 
@@ -14,7 +14,9 @@ type Provider = {
   };
 };
 
-export const SocialLoginButton: React.FC<SocialLoginProps> = ({ provider }) => {
+export const SocialLoginButton: React.FC<ISocialLoginProps> = ({
+  provider,
+}) => {
   const { loginDiscord, loginGithub } = useUser();
 
   const Providers: Provider = {
