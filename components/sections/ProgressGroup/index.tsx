@@ -36,11 +36,11 @@ export const ProgressGroup = () => {
         });
         setLessons(() => formattedData);
       }
-
-      if (error) handleError(error);
     };
 
-    fetchData();
+    if (user) {
+      fetchData();
+    }
   }, [user, handleError]);
 
   return (
