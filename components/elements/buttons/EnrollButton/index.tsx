@@ -5,12 +5,19 @@ import { FaSpinner } from 'react-icons/fa';
 import { useUser } from '@context/user';
 import { supabase } from '@utils/supabase';
 
+import type { Dispatch, SetStateAction } from 'react';
+
 interface IEnrollButtonProps {
   courseId: string;
+  enrolled: boolean;
+  setEnrolled: Dispatch<SetStateAction<boolean>>;
 }
 
-export const EnrollButton: React.FC<IEnrollButtonProps> = ({ courseId }) => {
-  const [enrolled, setEnrolled] = useState(false);
+export const EnrollButton: React.FC<IEnrollButtonProps> = ({
+  courseId,
+  enrolled,
+  setEnrolled,
+}) => {
   const [loading, setLoading] = useState(false);
 
   const { user } = useUser();
@@ -37,7 +44,7 @@ export const EnrollButton: React.FC<IEnrollButtonProps> = ({ courseId }) => {
     };
 
     getEnrollementStatus();
-  }, [user, courseId]);
+  }, [user, courseId, setEnrolled]);
 
   const handleEnrollment = async () => {
     if (!user) {

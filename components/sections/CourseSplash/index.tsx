@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import ReactMarkdown from 'react-markdown';
 import Image from 'next/image';
 
@@ -20,11 +22,16 @@ export const CourseSplash: React.FC<ICourseSplashProps> = ({
   instructor,
   lessons,
 }) => {
+  const [enrolled, setEnrolled] = useState(false);
   return (
     <div className='space-y-8'>
       <div className='grid items-center grid-cols-5'>
         <h2 className='col-span-4 text-6xl font-extrabold'>{course.name}</h2>
-        <EnrollButton courseId={course.id} />
+        <EnrollButton
+          courseId={course.id}
+          setEnrolled={setEnrolled}
+          enrolled={enrolled}
+        />
       </div>
       <div className='grid grid-cols-2 gap-x-8'>
         <div className='space-y-8'>
@@ -43,11 +50,14 @@ export const CourseSplash: React.FC<ICourseSplashProps> = ({
           </div>
           <div className='space-y-4'>
             <h3 className='text-4xl font-extrabold'>Course content</h3>
-            <p>{lessons.length} lessons</p>
+            <p>{`${lessons.length} lessons${
+              enrolled ? '' : ' - Enroll to get started'
+            }`}</p>
             <ul className='space-y-4'>
               {lessons.map((lesson) => {
                 return (
                   <LessonCard
+                    enrolled={enrolled}
                     key={lesson.id}
                     lesson={lesson}
                     courseId={course.id}
