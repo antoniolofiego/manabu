@@ -11,3 +11,4 @@ export { UserProfile } from './UserProfile';
 export { SearchBar } from './SearchBar';
 export { SocialLoginButton } from './SocialLoginButton';
 export { ThemeSwitcherButton } from './ThemeSwitcherButton';
+export { VideoPlayer } from './VideoPlayer';
