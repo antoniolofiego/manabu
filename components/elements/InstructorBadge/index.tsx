@@ -15,12 +15,24 @@ export const InstructorBadge: React.FC<IInstructorBadgeProps> = ({
     <div className='grid items-center grid-cols-3 space-x-4 md:flex'>
       <div className='relative w-16 h-16 overflow-hidden rounded-full lg:h-24 lg:w-24'>
         {instructor.imageUrl ? (
-          <Image
-            src={instructor.imageUrl}
-            layout='fill'
-            objectFit='cover'
-            alt={`${instructor.name} profile picture `}
-          />
+          noNav ? (
+            <Image
+              src={instructor.imageUrl}
+              layout='fill'
+              objectFit='cover'
+              alt={`${instructor.name} profile picture`}
+            />
+          ) : (
+            <Link href={`/instructors/${instructor.id}`} passHref>
+              <Image
+                src={instructor.imageUrl}
+                layout='fill'
+                objectFit='cover'
+                className='cursor-pointer'
+                alt={`${instructor.name} profile picture`}
+              />
+            </Link>
+          )
         ) : (
           <span className='absolute w-full h-full bg-gradient-to-br from-red-500 to-blue-500' />
         )}
@@ -31,7 +43,9 @@ export const InstructorBadge: React.FC<IInstructorBadgeProps> = ({
           <p className='text-sm md:text-lg'>{instructor.name}</p>
         ) : (
           <Link href={`/instructors/${instructor.id}`}>
-            <a className='text-sm md:text-lg'>{instructor.name}</a>
+            <a className='text-sm transition md:text-lg dark:hover:text-gray-400 hover:text-gray-700'>
+              {instructor.name}
+            </a>
           </Link>
         )}
       </div>
