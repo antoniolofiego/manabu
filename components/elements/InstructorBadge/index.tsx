@@ -4,10 +4,12 @@ import Link from 'next/link';
 import type { InstructorDetails } from '@types';
 interface IInstructorBadgeProps {
   instructor: InstructorDetails;
+  noNav?: boolean;
 }
 
 export const InstructorBadge: React.FC<IInstructorBadgeProps> = ({
   instructor,
+  noNav,
 }) => {
   return (
     <div className='flex items-center space-x-4'>
@@ -24,9 +26,13 @@ export const InstructorBadge: React.FC<IInstructorBadgeProps> = ({
       </div>
       <div>
         <p className='font-mono text-sm capitalize'>Instructor</p>
-        <Link href={`/instructors/${instructor.id}`}>
-          <a className='text-lg'>{instructor.name}</a>
-        </Link>
+        {noNav ? (
+          <p className='text-lg'>{instructor.name}</p>
+        ) : (
+          <Link href={`/instructors/${instructor.id}`}>
+            <a className='text-lg'>{instructor.name}</a>
+          </Link>
+        )}
       </div>
     </div>
   );
