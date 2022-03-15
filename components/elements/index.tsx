@@ -1,4 +1,9 @@
-export { EnrollButton, MarkAsCompleteButton } from './buttons';
+export {
+  EnrollButton,
+  MarkAsCompleteButton,
+  SocialLoginButton,
+  ThemeSwitcherButton,
+} from './buttons';
 export {
   CourseCard,
   FindACourseCard,
@@ -11,6 +16,4 @@ export { InstructorBadge } from './InstructorBadge';
 export { NavItem } from './NavItem';
 export { UserProfile } from './UserProfile';
 export { SearchBar } from './SearchBar';
-export { SocialLoginButton } from './SocialLoginButton';
-export { ThemeSwitcherButton } from './ThemeSwitcherButton';
 export { VideoPlayer } from './VideoPlayer';
