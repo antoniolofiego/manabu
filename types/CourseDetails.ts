@@ -19,3 +19,10 @@ export type LessonDetails = {
   lessonNumber: number;
   videoUrl: string;
 };
+
+export interface ICourse extends CourseDetails {
+  instructor: InstructorDetails;
+}
+export interface ICourseGroup {
+  courses: ICourse[];
+}
