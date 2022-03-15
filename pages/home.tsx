@@ -1,9 +1,4 @@
-import {
-  ProgressGroup,
-  CardGroup,
-  Layout,
-  CourseGroup,
-} from '@components/sections';
+import { ProgressGroup, Layout, CourseGroup } from '@components/sections';
 import Head from 'next/head';
 
 import { supabase } from '@utils/supabase';
@@ -27,7 +22,6 @@ const Home: NextPage<ICourseGroup> = ({ courses }) => {
         <div className='mx-auto space-y-12'>
           <ProgressGroup />
           <CourseGroup title='Most recent courses' courses={courses} />
-          <CardGroup />
         </div>
       </Layout>
     </>
