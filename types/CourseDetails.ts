@@ -2,7 +2,8 @@ export type CourseDetails = {
   name: string;
   id: string;
   imageUrl: string;
-  description: string;
+  description?: string;
+  shortDescription?: string;
 };
 
 export type InstructorDetails = {
