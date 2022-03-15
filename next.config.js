@@ -1,4 +1,5 @@
 module.exports = {
+  jsconfigPaths: true,
   reactStrictMode: true,
   images: {
     domains: [
