@@ -28,7 +28,7 @@ export const EnrollButton: React.FC<IEnrollButtonProps> = ({ courseId }) => {
           .eq('user_id', user.id)
           .eq('course_id', courseId);
 
-        if (data === null) {
+        if (data !== null) {
           setEnrolled(() => true);
         }
 
