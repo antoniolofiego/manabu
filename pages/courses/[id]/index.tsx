@@ -92,15 +92,19 @@ export const getStaticProps: GetStaticProps = async (context) => {
       imageUrl: courseData[0].instructor_image_url,
     };
 
-    const lessons = lessonsData.map((lesson) => {
-      return {
-        name: lesson.name,
-        id: lesson.id,
-        imageUrl: lesson.image_url,
-        lessonNumber: lesson.lesson_number,
-        videoUrl: lesson.video_url,
-      };
-    });
+    const lessons = lessonsData
+      .sort((a, b) => a.lesson_number - b.lesson_number)
+      .map((lesson) => {
+        return {
+          name: lesson.name,
+          id: lesson.id,
+          imageUrl: lesson.image_url,
+          lessonNumber: lesson.lesson_number,
+          videoUrl: lesson.video_url,
+        };
+      });
+
+    console.log({ course, instructor, lessons });
 
     return {
       props: { course, instructor, lessons },
