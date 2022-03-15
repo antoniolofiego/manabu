@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import Sidebar from '.';
+import { Sidebar } from '.';
 import * as UserContext from '@context/user';
 
 import { mockUser } from '@mocks/user';
