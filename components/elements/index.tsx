@@ -6,6 +6,7 @@ export {
   ShareProgressCard,
   LessonCard,
 } from './cards';
+export { Heading } from './Heading';
 export { InstructorBadge } from './InstructorBadge';
 export { NavItem } from './NavItem';
 export { UserProfile } from './UserProfile';
