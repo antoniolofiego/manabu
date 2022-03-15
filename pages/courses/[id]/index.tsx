@@ -92,8 +92,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
       imageUrl: courseData[0].instructor_image_url,
     };
 
-    console.log(lessonsData);
-
     const lessons = lessonsData
       .sort((a, b) => a.lesson_number - b.lesson_number)
       .map((lesson) => {
