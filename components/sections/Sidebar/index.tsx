@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Logo } from '@components/assets/';
+import { Logo } from '@components/assets';
 import { UserProfile, NavItem } from '@components/elements';
 
 import {
