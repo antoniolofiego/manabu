@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { Layout, CourseSplash } from '@components/sections';
 
 import { supabase } from '@utils/supabase';
@@ -22,18 +23,23 @@ const CoursePage: NextPage<ICoursePageProps> = ({
   lessons,
 }) => {
   return (
-    <Layout>
-      <div className='space-y-8'>
-        <span className='px-4 py-2 bg-green-400 rounded-full text-slate-700'>
-          Course
-        </span>
-        <CourseSplash
-          course={course}
-          instructor={instructor}
-          lessons={lessons}
-        />
-      </div>
-    </Layout>
+    <>
+      <Head>
+        <title>{`${course.name} - manabu`}</title>
+      </Head>
+      <Layout>
+        <div className='space-y-8'>
+          <span className='px-4 py-2 bg-green-400 rounded-full text-slate-700'>
+            Course
+          </span>
+          <CourseSplash
+            course={course}
+            instructor={instructor}
+            lessons={lessons}
+          />
+        </div>
+      </Layout>
+    </>
   );
 };
 
