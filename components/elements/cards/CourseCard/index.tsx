@@ -19,7 +19,7 @@ export const CourseCard: React.FC<ICourseCardProps> = ({ course }) => {
         <div className='relative w-full overflow-hidden border-2 border-gray-900 aspect-video rounded-xl dark:border-gray-50'>
           <Image src={course.imageUrl} alt={course.name} layout='fill' />
         </div>
-        <p className='h-24'>{course.shortDescription}</p>
+        <p className='w-full h-24 overflow-hidden'>{course.shortDescription}</p>
         <InstructorBadge instructor={course.instructor} noNav />
       </div>
     </Link>
