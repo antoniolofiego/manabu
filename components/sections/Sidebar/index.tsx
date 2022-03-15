@@ -27,10 +27,10 @@ export const Sidebar = () => {
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside, true);
+    document.addEventListener('click', handleClickOutside, true);
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside, true);
+      document.removeEventListener('click', handleClickOutside, true);
     };
   }, []);
 
