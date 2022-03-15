@@ -21,10 +21,9 @@ export default CoursesPage;
 export const getStaticProps: GetStaticProps = async () => {
   const { data, error } = await supabase
     .from('courses')
-    .select('*, instructors (*), lessons( total_lessons ) ', {
+    .select('*, instructors (*)', {
       count: 'exact',
-    })
-    .range(0, 9);
+    });
 
   if (error) {
     console.error(error);
