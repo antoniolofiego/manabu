@@ -1,26 +1,18 @@
-import { CourseCard } from '@components/elements';
-import { Layout } from '@components/sections';
+import { Heading } from '@components/elements';
+import { CourseGroup, Layout } from '@components/sections';
 
 import { supabase } from '@utils/supabase';
 
 import type { NextPage, GetStaticProps } from 'next';
-import type { CourseDetails, InstructorDetails } from '@types';
+import type { ICourse, ICourseGroup } from '@types';
 
-interface Course extends CourseDetails {
-  instructor: InstructorDetails;
-}
-interface ICoursesPageProps {
-  courses: Course[];
-}
-
-const CoursesPage: NextPage<ICoursesPageProps> = ({ courses }) => {
+const CoursesPage: NextPage<ICourseGroup> = ({ courses }) => {
   console.log(courses[0]);
   return (
     <Layout>
-      <div className='grid gap-8 lg:grid-cols-2'>
-        {courses.map((course) => {
-          return <CourseCard course={course} key={course.id} />;
-        })}
+      <div className='space-y-8'>
+        <Heading text='Enroll in a new course' />
+        <CourseGroup courses={courses} />
       </div>
     </Layout>
   );
@@ -42,7 +34,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
 
   if (data) {
-    const courses: Course[] = data?.map((course) => {
+    const courses: ICourse[] = data?.map((course) => {
       return {
         id: course.id,
         name: course.name,
