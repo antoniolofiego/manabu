@@ -15,7 +15,7 @@ export const CourseGroup: React.FC<ICourseGroupProps> = ({
     <div className='space-y-8'>
       <Heading text={title} />
 
-      <div className='grid grid-cols-1 gap-8 px-8 lg:grid-cols-2'>
+      <div className='grid grid-cols-1 gap-12 lg:px-8 lg:grid-cols-2'>
         {courses.map((course) => {
           return <CourseCard course={course} key={course.id} />;
         })}

@@ -50,7 +50,7 @@ export const ProgressGroup = () => {
             <div className='space-y-8'>
               <Heading text='Your courses' />
 
-              <ul className='grid w-full gap-12 px-8 mx-auto lg:mx-0 xl:max-w-full lg:grid-cols-2'>
+              <ul className='grid w-full grid-cols-1 gap-12 mx-auto lg:px-8 lg:mx-0 xl:max-w-full lg:grid-cols-2'>
                 <ErrorBoundary
                   fallback={
                     <p>
