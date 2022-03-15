@@ -3,14 +3,9 @@ import Image from 'next/image';
 
 import { InstructorBadge } from '@components/elements';
 
-import type { CourseDetails, InstructorDetails } from '@types';
-
-interface Course extends CourseDetails {
-  instructor: InstructorDetails;
-}
-
+import type { ICourse } from '@types';
 interface ICourseCardProps {
-  course: Course;
+  course: ICourse;
 }
 
 export const CourseCard: React.FC<ICourseCardProps> = ({ course }) => {
