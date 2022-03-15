@@ -45,7 +45,7 @@ export const Sidebar = () => {
         </button>
       )}
       <nav
-        className={` top-0 z-50 flex-col items-center justify-center md:w-56 h-screen border-r border-gray-900 md:flex dark:border-gray-50 transition dark:bg-gray-900 bg-gray-50 ${
+        className={`sticky top-0 z-50 flex-col items-center justify-center md:w-56 h-screen border-r border-gray-900 md:flex dark:border-gray-50 transition dark:bg-gray-900 bg-gray-50 ${
           isShowing
             ? 'absolute flex translate-x-0 w-56'
             : '-translate-x-56 md:translate-x-0 w-0'
