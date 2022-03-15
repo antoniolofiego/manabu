@@ -22,7 +22,7 @@ export const CourseSplash: React.FC<ICourseSplashProps> = ({
 }) => {
   return (
     <div className='space-y-8'>
-      <div className='grid grid-cols-5'>
+      <div className='grid items-center grid-cols-5'>
         <h2 className='col-span-4 text-6xl font-extrabold'>{course.name}</h2>
         <EnrollButton courseId={course.id} />
       </div>
