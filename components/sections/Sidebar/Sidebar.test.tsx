@@ -4,30 +4,6 @@ import * as UserContext from '@context/user';
 
 import { mockUser } from '@mocks/user';
 
-jest.mock('next/router', () => ({
-  useRouter() {
-    return {
-      route: '/',
-      pathname: '',
-      query: '',
-      asPath: '',
-      push: jest.fn(),
-      events: {
-        on: jest.fn(),
-        off: jest.fn(),
-      },
-      beforePopState: jest.fn(() => null),
-      prefetch: jest.fn(() => null),
-    };
-  },
-}));
-
-jest.mock('@supabase/supabase-js', () => ({
-  createClient() {
-    return {};
-  },
-}));
-
 describe('The sidebar', () => {
   afterEach(() => {
     jest.clearAllMocks();
