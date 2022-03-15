@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ErrorBoundary, useErrorHandler } from 'react-error-boundary';
 
-import { ProgressCard } from '@components/elements';
+import { Heading, ProgressCard } from '@components/elements';
 
 import { supabase } from '@utils/supabase';
 import { useUser } from '@context/user';
@@ -48,7 +48,7 @@ export const ProgressGroup = () => {
       {user
         ? lessons.length > 0 && (
             <div className='space-y-8'>
-              <h2 className='text-2xl font-extrabold'>Your courses</h2>
+              <Heading text='Your courses' />
 
               <ul className='grid w-full gap-12 px-8 mx-auto lg:mx-0 xl:max-w-full lg:grid-cols-2'>
                 <ErrorBoundary
