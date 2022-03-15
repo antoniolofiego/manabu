@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Head from 'next/head';
 
 import { ArrowLeftIcon } from '@heroicons/react/outline';
 import { VideoPlayer } from '@components/elements';
@@ -22,20 +23,26 @@ interface ILessonPageProps {
 
 const LessonPage: NextPage<ILessonPageProps> = ({ course, lesson }) => {
   return (
-    <Layout>
-      <div className='w-full space-y-3'>
-        <Link href={`/courses/${course.id}`}>
-          <a>
-            <span className='flex items-center space-x-2 text-xl transform dark:hover:text-gray-400 hover:text-gray-700 hover:translate-x-2'>
-              <ArrowLeftIcon className='h-4' />
-              <span>Back to {course.name}</span>
-            </span>
-          </a>
-        </Link>
-        <h3 className='text-3xl'>{`${lesson.lessonNumber}. ${lesson.name}`}</h3>
-        <VideoPlayer videoUrl={lesson.videoUrl} />
-      </div>
-    </Layout>
+    <>
+      <Head>
+        <title>{`${lesson.name} - manabu`}</title>
+      </Head>
+
+      <Layout>
+        <div className='w-full space-y-3'>
+          <Link href={`/courses/${course.id}`}>
+            <a>
+              <span className='flex items-center space-x-2 text-xl transform dark:hover:text-gray-400 hover:text-gray-700 hover:translate-x-2'>
+                <ArrowLeftIcon className='h-4' />
+                <span>Back to {course.name}</span>
+              </span>
+            </a>
+          </Link>
+          <h3 className='text-3xl'>{`${lesson.lessonNumber}. ${lesson.name}`}</h3>
+          <VideoPlayer videoUrl={lesson.videoUrl} />
+        </div>
+      </Layout>
+    </>
   );
 };
 
