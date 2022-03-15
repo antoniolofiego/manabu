@@ -1,5 +1,7 @@
 module.exports = {
-  jsconfigPaths: true,
+  experimental: {
+    jsconfigPaths: true,
+  },
   reactStrictMode: true,
   images: {
     domains: [
