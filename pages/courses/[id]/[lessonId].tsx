@@ -50,9 +50,7 @@ export async function getStaticPaths() {
     };
   });
 
-  console.log(paths);
-
-  return { paths: paths, fallback: true };
+  return { paths: paths, fallback: false };
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
@@ -79,7 +77,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
 
   if (courseData && lessonData) {
-    const lesson = {
+    const lesson: LessonDetails = {
       name: lessonData[0].name,
       id: lessonData[0].id,
       imageUrl: lessonData[0].image_url,
@@ -88,8 +86,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
     };
 
     const course = { name: courseData[0].name, id: courseData[0].id };
-
-    console.log(course);
 
     return {
       props: { course, lesson },

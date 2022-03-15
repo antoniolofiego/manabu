@@ -48,7 +48,7 @@ export async function getStaticPaths() {
     };
   });
 
-  return { paths: paths, fallback: true };
+  return { paths: paths, fallback: false };
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
@@ -92,6 +92,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
       imageUrl: courseData[0].instructor_image_url,
     };
 
+    console.log(lessonsData);
+
     const lessons = lessonsData
       .sort((a, b) => a.lesson_number - b.lesson_number)
       .map((lesson) => {
@@ -103,8 +105,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
           videoUrl: lesson.video_url,
         };
       });
-
-    console.log({ course, instructor, lessons });
 
     return {
       props: { course, instructor, lessons },
