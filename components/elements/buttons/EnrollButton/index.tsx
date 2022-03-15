@@ -107,7 +107,7 @@ export const EnrollButton: React.FC<IEnrollButtonProps> = ({
       onClick={handleEnrollment}
     >
       {loading ? (
-        <FaSpinner className='h-8 animate-spin' />
+        <FaSpinner className='h-6 animate-spin' />
       ) : enrolled ? (
         'Unenroll'
       ) : (
