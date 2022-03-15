@@ -1,5 +1,6 @@
 export { EnrollButton, MarkAsCompleteButton } from './buttons';
 export {
+  CourseCard,
   FindACourseCard,
   ProgressCard,
   ShareProgressCard,
