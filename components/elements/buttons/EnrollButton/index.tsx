@@ -22,13 +22,13 @@ export const EnrollButton: React.FC<IEnrollButtonProps> = ({ courseId }) => {
       if (user) {
         setLoading(true);
 
-        const { data, error } = await supabase
+        const { data } = await supabase
           .from('enrollments')
           .select('*')
           .eq('user_id', user.id)
           .eq('course_id', courseId);
 
-        if (data !== null) {
+        if (data?.length !== 0) {
           setEnrolled(() => true);
         }
 
