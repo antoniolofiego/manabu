@@ -1,7 +1,11 @@
 import ReactMarkdown from 'react-markdown';
 import Image from 'next/image';
 
-import { InstructorBadge, LessonCard } from '@components/elements';
+import {
+  InstructorBadge,
+  LessonCard,
+  EnrollButton,
+} from '@components/elements';
 
 import type { CourseDetails, InstructorDetails, LessonDetails } from '@types';
 
@@ -18,7 +22,10 @@ export const CourseSplash: React.FC<ICourseSplashProps> = ({
 }) => {
   return (
     <div className='space-y-8'>
-      <h2 className='text-6xl font-extrabold'>{course.name}</h2>
+      <div className='grid grid-cols-5'>
+        <h2 className='col-span-4 text-6xl font-extrabold'>{course.name}</h2>
+        <EnrollButton courseId={course.id} />
+      </div>
       <div className='grid grid-cols-2 gap-x-8'>
         <div className='space-y-8'>
           <InstructorBadge instructor={instructor} />
