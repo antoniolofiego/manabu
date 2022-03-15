@@ -1,13 +1,25 @@
-import { CourseCard } from '@components/elements';
+import { Heading, CourseCard } from '@components/elements';
 
-import type { ICourseGroup } from '@types';
+import type { ICourse } from '@types';
 
-export const CourseGroup: React.FC<ICourseGroup> = ({ courses }) => {
+interface ICourseGroupProps {
+  courses: ICourse[];
+  title: string;
+}
+
+export const CourseGroup: React.FC<ICourseGroupProps> = ({
+  title,
+  courses,
+}) => {
   return (
-    <div className='grid gap-8 lg:grid-cols-2'>
-      {courses.map((course) => {
-        return <CourseCard course={course} key={course.id} />;
-      })}
+    <div className='space-y-8'>
+      <Heading text={title} />
+
+      <div className='grid gap-8 lg:grid-cols-2'>
+        {courses.map((course) => {
+          return <CourseCard course={course} key={course.id} />;
+        })}
+      </div>
     </div>
   );
 };
