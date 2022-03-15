@@ -22,6 +22,12 @@ jest.mock('next/router', () => ({
   },
 }));
 
+jest.mock('@supabase/supabase-js', () => ({
+  createClient() {
+    return {};
+  },
+}));
+
 describe('The sidebar', () => {
   afterEach(() => {
     jest.clearAllMocks();
