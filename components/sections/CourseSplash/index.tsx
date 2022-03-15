@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import ReactMarkdown from 'react-markdown';
+import Markdown from 'marked-react';
 import Image from 'next/image';
 
 import {
@@ -37,7 +37,7 @@ export const CourseSplash: React.FC<ICourseSplashProps> = ({
         <div className='space-y-8'>
           <InstructorBadge instructor={instructor} />
           <article className='prose dark:prose-invert'>
-            <ReactMarkdown>{course.description}</ReactMarkdown>
+            <Markdown>{course.description}</Markdown>
           </article>
         </div>
         <div className='space-y-8'>
