@@ -48,7 +48,7 @@ export const ProgressGroup = () => {
       {user
         ? lessons.length > 0 && (
             <div className='space-y-8'>
-              <Heading text='Your courses' />
+              <Heading text='Continue your learning' />
 
               <ul className='grid w-full grid-cols-1 gap-12 mx-auto lg:px-8 lg:mx-0 xl:max-w-full lg:grid-cols-2'>
                 <ErrorBoundary
