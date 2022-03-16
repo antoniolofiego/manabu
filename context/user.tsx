@@ -13,7 +13,7 @@ type ContextType = {
   isLoading: boolean;
 };
 
-const Context = createContext<ContextType>({
+export const UserContext = createContext<ContextType>({
   user: null,
   loginEmail: () => {},
   loginDiscord: () => {},
@@ -109,11 +109,13 @@ const UserProvider: React.FC = ({ children }) => {
     isLoading,
   };
 
-  return <Context.Provider value={exposed}>{children}</Context.Provider>;
+  return (
+    <UserContext.Provider value={exposed}>{children}</UserContext.Provider>
+  );
 };
 
 export const useUser = () => {
-  return useContext(Context);
+  return useContext(UserContext);
 };
 
 export default UserProvider;
