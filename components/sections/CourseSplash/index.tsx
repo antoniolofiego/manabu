@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 import {
   InstructorBadge,
-  LessonCard,
+  LessonListItem,
   EnrollButton,
 } from '@components/elements';
 
@@ -56,7 +56,7 @@ export const CourseSplash: React.FC<ICourseSplashProps> = ({
             <ul className='space-y-4'>
               {lessons.map((lesson) => {
                 return (
-                  <LessonCard
+                  <LessonListItem
                     enrolled={enrolled}
                     key={lesson.id}
                     lesson={lesson}
