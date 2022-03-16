@@ -1,5 +1,3 @@
-import React, { useState } from 'react';
-
 import Link from 'next/link';
 
 import ReactPlayer from 'react-player/youtube';
@@ -21,8 +19,6 @@ export const LessonGroup: React.FC<ILessonGroupProps> = ({
   currentLesson,
   allLessons,
 }) => {
-  const [completed, setCompleted] = useState(currentLesson.completed);
-
   return (
     <div className='w-full space-y-8 overflow-y-hidden'>
       <Link href={`/courses/${course.id}`}>
@@ -34,8 +30,8 @@ export const LessonGroup: React.FC<ILessonGroupProps> = ({
         </a>
       </Link>
       <h3 className='text-3xl'>{`${currentLesson.lessonNumber}. ${currentLesson.name}`}</h3>
-      <div className='relative flex flex-col w-full xl:flex-row gap-x-8'>
-        <div className='flex flex-col items-end mx-auto space-y-4'>
+      <div className='relative flex flex-col w-full space-y-8 xl:space-y-0 xl:flex-row gap-x-8'>
+        <div className='flex flex-col items-end mx-auto space-y-8'>
           <ReactPlayer
             url={currentLesson.videoUrl}
             playing={false}
@@ -43,8 +39,7 @@ export const LessonGroup: React.FC<ILessonGroupProps> = ({
           />
           <MarkAsCompleteButton
             lessonId={currentLesson.id}
-            completed={completed}
-            setCompleted={setCompleted}
+            initialCompleted={currentLesson.completed}
           />
         </div>
         <ul className='flex flex-col flex-1 space-y-4 '>
