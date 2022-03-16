@@ -1,3 +1,9 @@
+declare namespace Cypress {
+  interface Chainable<Subject> {
+    setTheme(secret: string): Cypress.Chainable<void>;
+  }
+}
+
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -26,6 +32,6 @@
 
 import '@testing-library/cypress/add-commands';
 
-Cypress.Commands.add('setTheme', (theme) => {
+Cypress.Commands.add('setTheme', (theme: string) => {
   window.localStorage.setItem('theme', theme);
 });
