@@ -8,6 +8,7 @@ export {
   CourseCard,
   FindACourseCard,
   LessonCard,
+  InstructorCard,
   ProgressCard,
   ShareProgressCard,
 } from './cards';
