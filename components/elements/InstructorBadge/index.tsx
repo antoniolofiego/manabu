@@ -24,7 +24,7 @@ export const InstructorBadge: React.FC<IInstructorBadgeProps> = ({
             />
           ) : (
             <Link href={`/courses?instructorId=${instructor.id}`}>
-              <a>
+              <a data-testid='link'>
                 <Image
                   src={instructor.imageUrl}
                   layout='fill'
@@ -45,7 +45,10 @@ export const InstructorBadge: React.FC<IInstructorBadgeProps> = ({
           <p className='text-sm md:text-lg'>{instructor.name}</p>
         ) : (
           <Link href={`/courses?instructorId=${instructor.id}`}>
-            <a className='text-sm transition md:text-lg dark:hover:text-gray-400 hover:text-gray-700'>
+            <a
+              className='text-sm transition md:text-lg dark:hover:text-gray-400 hover:text-gray-700'
+              data-testid='link'
+            >
               {instructor.name}
             </a>
           </Link>
