@@ -1,3 +1,5 @@
+import { useRouter } from 'next/router';
+
 import { CourseGroup, Layout } from '@components/sections';
 
 import { supabase } from '@utils/supabase';
@@ -6,11 +8,31 @@ import type { NextPage, GetStaticProps } from 'next';
 import type { ICourse, ICourseGroup } from '@types';
 
 const CoursesPage: NextPage<ICourseGroup> = ({ courses }) => {
-  console.log(courses[0]);
+  const router = useRouter();
+
+  const [query, id] = router.asPath.split('?')[1].split('=');
+
+  let filteredCourses = courses;
+  let instructorName = '';
+
+  if (query === 'instructorId') {
+    filteredCourses = courses.filter((course) => course.instructor.id === id);
+    if (filteredCourses.length > 0) {
+      instructorName = filteredCourses[0].instructor.name;
+    } else {
+      filteredCourses = courses;
+    }
+  }
+
   return (
     <Layout>
       <div className='space-y-8'>
-        <CourseGroup title='Enroll in a new course' courses={courses} />
+        <CourseGroup
+          title={`Enroll in a new course${
+            instructorName && ` by ${instructorName}`
+          }`}
+          courses={filteredCourses}
+        />
       </div>
     </Layout>
   );
