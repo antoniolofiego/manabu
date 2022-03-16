@@ -5,8 +5,6 @@ import { ActionButton } from '../ActionButton';
 import { supabase } from '@utils/supabase';
 import { useUser } from '@context/user';
 
-import type { Dispatch, SetStateAction } from 'react';
-
 interface IMarkAsCompleteProps {
   lessonId: string;
   initialCompleted: boolean;
