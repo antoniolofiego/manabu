@@ -2,7 +2,9 @@ import { useRouter } from 'next/router';
 
 import { Layout } from '@components/sections';
 
-import type { NextPage } from 'next';
+import { supabase } from '@utils/supabase';
+
+import type { NextPage, GetStaticProps } from 'next';
 
 const InstructorPage: NextPage = () => {
   const router = useRouter();
