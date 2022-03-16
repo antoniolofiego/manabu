@@ -7,10 +7,11 @@ export {
 export {
   CourseCard,
   FindACourseCard,
+  LessonCard,
   ProgressCard,
   ShareProgressCard,
-  LessonCard,
 } from './cards';
+export { LessonListItem } from './LessonListItem';
 export { Heading } from './Heading';
 export { InstructorBadge } from './InstructorBadge';
 export { NavItem } from './NavItem';
