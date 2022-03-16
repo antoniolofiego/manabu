@@ -12,7 +12,7 @@ export const ThemeSwitcherButton: React.FC<ThemeSwitcherButtonProps> = ({
 
   return (
     <button
-      data-testid='themeSwitcher'
+      name='themeSwitcher'
       className={`flex items-center text-sm rounded-md group ${height}`}
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
     >
