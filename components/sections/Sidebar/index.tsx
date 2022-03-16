@@ -13,7 +13,7 @@ import {
 } from '@heroicons/react/outline';
 
 import { useUser } from '@context/user';
-import { useCallbackOnClickOutside } from '@hooks';
+import useCallbackOnClickOutside from '../../../hooks/useCallbackOnClickOutside';
 
 export const Sidebar = () => {
   const { user, isLoading } = useUser();

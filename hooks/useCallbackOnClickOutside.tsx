@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-export const useCallbackOnClickOutside = (id: string, callback: Function) => {
+const useCallbackOnClickOutside = (id: string, callback: Function) => {
   useEffect(() => {
     const element = document.getElementById(id);
 
@@ -17,3 +17,5 @@ export const useCallbackOnClickOutside = (id: string, callback: Function) => {
     };
   }, [callback, id]);
 };
+
+export default useCallbackOnClickOutside;
