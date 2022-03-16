@@ -19,6 +19,7 @@ export type LessonDetails = {
   completed: boolean;
   lessonNumber: number;
   videoUrl: string;
+  courseId?: string;
 };
 
 export interface ICourse extends CourseDetails {
