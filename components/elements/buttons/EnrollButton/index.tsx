@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { FaSpinner } from 'react-icons/fa';
+
+import { ActionButton } from '../ActionButton';
 
 import { useUser } from '@context/user';
 import { supabase } from '@utils/supabase';
@@ -100,19 +101,11 @@ export const EnrollButton: React.FC<IEnrollButtonProps> = ({
   };
 
   return (
-    <button
-      className={`px-4 py-2 flex justify-center items-center transition border border-gray-900 rounded-full dark:border-gray-50 ${
-        enrolled ? 'hover:bg-red-400' : 'hover:bg-green-400'
-      }  hover:text-gray-900`}
-      onClick={handleEnrollment}
-    >
-      {loading ? (
-        <FaSpinner className='h-6 animate-spin' />
-      ) : enrolled ? (
-        'Unenroll'
-      ) : (
-        'Enroll'
-      )}
-    </button>
+    <ActionButton
+      clickHandler={handleEnrollment}
+      loading={loading}
+      status={enrolled}
+      statusPrompt={{ trueState: 'Unenroll', falseState: 'Enroll' }}
+    />
   );
 };
