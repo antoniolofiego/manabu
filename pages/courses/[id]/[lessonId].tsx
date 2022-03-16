@@ -1,46 +1,42 @@
-import Link from 'next/link';
 import Head from 'next/head';
 
-import { ArrowLeftIcon } from '@heroicons/react/outline';
-import { VideoPlayer } from '@components/elements';
-import { Layout } from '@components/sections';
+import { Layout, LessonGroup } from '@components/sections';
 import { supabase } from '@utils/supabase';
 
-import type { NextPage, GetStaticProps } from 'next';
+import type { NextPage, GetServerSideProps } from 'next';
 import type { ParsedUrlQuery } from 'querystring';
 import type { LessonDetails } from '@types';
+
 interface IParams extends ParsedUrlQuery {
   slug: string;
 }
 
 interface ILessonPageProps {
-  lesson: LessonDetails;
+  currentLesson: LessonDetails;
+  allLessons: LessonDetails[];
   course: {
     name: string;
     id: string;
   };
 }
 
-const LessonPage: NextPage<ILessonPageProps> = ({ course, lesson }) => {
+const LessonPage: NextPage<ILessonPageProps> = ({
+  course,
+  currentLesson,
+  allLessons,
+}) => {
   return (
     <>
       <Head>
-        <title>{`${lesson.name} - manabu`}</title>
+        <title>{`${currentLesson.name} - manabu`}</title>
       </Head>
 
       <Layout>
-        <div className='w-full space-y-3'>
-          <Link href={`/courses/${course.id}`}>
-            <a>
-              <span className='flex items-center space-x-2 text-xl transform dark:hover:text-gray-400 hover:text-gray-700 hover:translate-x-2'>
-                <ArrowLeftIcon className='h-4' />
-                <span>Back to {course.name}</span>
-              </span>
-            </a>
-          </Link>
-          <h3 className='text-3xl'>{`${lesson.lessonNumber}. ${lesson.name}`}</h3>
-          <VideoPlayer videoUrl={lesson.videoUrl} />
-        </div>
+        <LessonGroup
+          course={course}
+          currentLesson={currentLesson}
+          allLessons={allLessons}
+        />
       </Layout>
     </>
   );
@@ -48,55 +44,90 @@ const LessonPage: NextPage<ILessonPageProps> = ({ course, lesson }) => {
 
 export default LessonPage;
 
-export async function getStaticPaths() {
-  const { data } = await supabase.from('lessons').select('id, course_id');
+export const getServerSideProps: GetServerSideProps = async ({
+  req,
+  params,
+}) => {
+  const { id: courseId, lessonId } = params as IParams;
 
-  const paths = data?.map((id) => {
+  const { user } = await supabase.auth.api.getUserByCookie(req);
+
+  if (!user) {
     return {
-      params: { lessonId: id.id, id: id.course_id },
+      redirect: {
+        destination: `/courses/${courseId}`,
+        permanent: false,
+      },
     };
-  });
+  }
 
-  return { paths: paths, fallback: false };
-}
-
-export const getStaticProps: GetStaticProps = async (context) => {
-  const { id: courseId, lessonId } = context.params as IParams;
-
-  const { data: lessonData, error: lessonError } = await supabase
+  const { data: lessonsData, error: lessonsError } = await supabase
     .from('lessons')
     .select('*')
-    .eq('id', lessonId);
+    .eq('course_id', courseId);
 
-  if (lessonError) {
-    console.error(lessonError);
+  if (lessonsError) {
+    console.error(lessonsError);
     return { notFound: true };
   }
 
-  const { data: courseData, error: courseError } = await supabase
-    .from('courses')
-    .select('id, name')
-    .eq('id', courseId);
+  if (lessonsData) {
+    const lessonIds = lessonsData.map((lesson) => lesson.id);
 
-  if (courseError) {
-    console.error(courseError);
-    return { notFound: true };
-  }
+    const { data: progressData, error: progressError } = await supabase
+      .from('progress')
+      .select('*')
+      .eq('user_id', user.id)
+      .in('lesson_id', lessonIds);
 
-  if (courseData && lessonData) {
-    const lesson: LessonDetails = {
-      name: lessonData[0].name,
-      id: lessonData[0].id,
-      imageUrl: lessonData[0].image_url,
-      lessonNumber: lessonData[0].lesson_number,
-      videoUrl: lessonData[0].video_url,
-    };
+    console.log(progressData);
 
-    const course = { name: courseData[0].name, id: courseData[0].id };
+    if (progressError) {
+      console.error(progressError);
+      return { notFound: true };
+    }
 
-    return {
-      props: { course, lesson },
-    };
+    if (progressData) {
+      const currentLessonData = lessonsData.filter(
+        (lesson) => lesson.id === lessonId
+      )[0];
+
+      const currentLessonProgressData = progressData.filter(
+        (progress) => progress.lesson_id === lessonId
+      )[0];
+
+      const currentLesson: LessonDetails = {
+        name: currentLessonData.name,
+        id: currentLessonData.id,
+        imageUrl: currentLessonData.image_url,
+        lessonNumber: currentLessonData.lesson_number,
+        completed: currentLessonProgressData.completed,
+        videoUrl: currentLessonData.video_url,
+      };
+
+      const course = { id: courseId };
+
+      const allLessons: LessonDetails[] = lessonsData
+        .sort((a, b) => a.lesson_number - b.lesson_number)
+        .map((lesson) => {
+          const currentLessonProgressData = progressData.filter(
+            (progress) => progress.lesson_id === lesson.id
+          )[0];
+
+          return {
+            name: lesson.name,
+            id: lesson.id,
+            imageUrl: lesson.image_url,
+            lessonNumber: lesson.lesson_number,
+            completed: currentLessonProgressData.completed,
+            videoUrl: lesson.video_url,
+          };
+        });
+
+      return {
+        props: { course, currentLesson, allLessons },
+      };
+    }
   }
 
   return { notFound: true };
