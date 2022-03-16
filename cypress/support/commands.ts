@@ -31,7 +31,3 @@ declare namespace Cypress {
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 import '@testing-library/cypress/add-commands';
-
-Cypress.Commands.add('setTheme', (theme: string) => {
-  window.localStorage.setItem('theme', theme);
-});
