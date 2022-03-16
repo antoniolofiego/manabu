@@ -8,7 +8,8 @@ import type { ParsedUrlQuery } from 'querystring';
 import type { LessonDetails } from '@types';
 
 interface IParams extends ParsedUrlQuery {
-  slug: string;
+  lessonId: string;
+  id: string;
 }
 
 interface ILessonPageProps {
@@ -116,6 +117,7 @@ export const getServerSideProps: GetServerSideProps = async ({
 
           return {
             name: lesson.name,
+            courseId: courseId,
             id: lesson.id,
             imageUrl: lesson.image_url,
             lessonNumber: lesson.lesson_number,
