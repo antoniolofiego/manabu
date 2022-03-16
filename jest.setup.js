@@ -19,11 +19,24 @@ jest.mock('next/router', () => ({
   },
 }));
 
+jest.mock('@utils/supabase', () => ({
+  supabase: {
+    auth: {
+      user() {
+        return { user: mockUser };
+      },
+    },
+  },
+}));
+
 jest.mock('@supabase/supabase-js', () => ({
   createClient() {
     return {};
   },
   auth: {
+    user() {
+      return { user: mockUser };
+    },
     signIn() {
       return {
         user: mockUser,
