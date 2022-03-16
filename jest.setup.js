@@ -1,4 +1,5 @@
 import '@testing-library/jest-dom/extend-expect';
+
 import { mockUser } from '@mocks/user';
 
 jest.mock('next/router', () => ({
