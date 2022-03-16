@@ -13,26 +13,13 @@ import {
 } from '@heroicons/react/outline';
 
 import { useUser } from '@context/user';
+import { useCallbackOnClickOutside } from '@hooks';
 
 export const Sidebar = () => {
   const { user, isLoading } = useUser();
   const [isShowing, setIsShowing] = useState(false);
 
-  useEffect(() => {
-    const element = document.getElementById('#sidebar');
-
-    const handleClickOutside = (event: MouseEvent) => {
-      if (!element?.contains(event.target as Node)) {
-        setIsShowing(false);
-      }
-    };
-
-    document.addEventListener('click', handleClickOutside, true);
-
-    return () => {
-      document.removeEventListener('click', handleClickOutside, true);
-    };
-  }, []);
+  useCallbackOnClickOutside('#sidebar', () => setIsShowing(false));
 
   return (
     <div id='sidebar'>
@@ -45,7 +32,7 @@ export const Sidebar = () => {
         </button>
       )}
       <nav
-        className={` top-0 z-50 flex-col items-center justify-center md:w-56 h-screen border-r border-gray-900 md:flex dark:border-gray-50 transition dark:bg-gray-900 bg-gray-50 ${
+        className={` top-0 z-[120] flex-col items-center justify-center md:w-56 h-screen border-r border-gray-900 md:flex dark:border-gray-50 transition dark:bg-gray-900 bg-gray-50 ${
           isShowing
             ? 'absolute flex translate-x-0 w-56'
             : '-translate-x-56 md:translate-x-0 w-0 sticky'

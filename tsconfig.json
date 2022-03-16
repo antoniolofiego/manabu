@@ -18,7 +18,7 @@
       "@components/*": ["components/*"],
       "@styles/*": ["styles/*"],
       "@pages/*": ["pages/*"],
-      "@hooks/*": ["hooks/*"],
+      "@hooks": ["hooks/"],
       "@utils/*": ["utils/*"],
       "@context/*": ["context/*"],
       "@mocks/*": ["__mocks__/*"],
