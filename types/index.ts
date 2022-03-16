@@ -1,7 +1,8 @@
 export type {
-  ICourse,
   CourseDetails,
+  ICourse,
   ICourseGroup,
+  IExtendedInstructor,
   InstructorDetails,
   LessonDetails,
 } from './details';

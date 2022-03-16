@@ -10,6 +10,7 @@ export type InstructorDetails = {
   name: string;
   id: string;
   imageUrl?: string;
+  description?: string;
 };
 
 export type LessonDetails = {
@@ -27,4 +28,8 @@ export interface ICourse extends CourseDetails {
 }
 export interface ICourseGroup {
   courses: ICourse[];
+}
+
+export interface IExtendedInstructor extends InstructorDetails {
+  numOfCourses: number;
 }
