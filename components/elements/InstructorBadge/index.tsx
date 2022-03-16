@@ -23,14 +23,16 @@ export const InstructorBadge: React.FC<IInstructorBadgeProps> = ({
               alt={`${instructor.name} profile picture`}
             />
           ) : (
-            <Link href={`/courses?instructorId=${instructor.id}`} passHref>
-              <Image
-                src={instructor.imageUrl}
-                layout='fill'
-                objectFit='cover'
-                className='cursor-pointer'
-                alt={`${instructor.name} profile picture`}
-              />
+            <Link href={`/courses?instructorId=${instructor.id}`}>
+              <a>
+                <Image
+                  src={instructor.imageUrl}
+                  layout='fill'
+                  objectFit='cover'
+                  className='cursor-pointer'
+                  alt={`${instructor.name} profile picture`}
+                />
+              </a>
             </Link>
           )
         ) : (
