@@ -23,7 +23,7 @@ export const InstructorBadge: React.FC<IInstructorBadgeProps> = ({
               alt={`${instructor.name} profile picture`}
             />
           ) : (
-            <Link href={`/instructors/${instructor.id}`} passHref>
+            <Link href={`/courses?instructorId=${instructor.id}`} passHref>
               <Image
                 src={instructor.imageUrl}
                 layout='fill'
@@ -42,7 +42,7 @@ export const InstructorBadge: React.FC<IInstructorBadgeProps> = ({
         {noNav ? (
           <p className='text-sm md:text-lg'>{instructor.name}</p>
         ) : (
-          <Link href={`/instructors/${instructor.id}`}>
+          <Link href={`/courses?instructorId=${instructor.id}`}>
             <a className='text-sm transition md:text-lg dark:hover:text-gray-400 hover:text-gray-700'>
               {instructor.name}
             </a>
