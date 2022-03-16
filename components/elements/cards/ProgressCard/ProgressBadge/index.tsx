@@ -41,7 +41,7 @@ const ProgressBadge: React.FC<IProgressBadgeProps> = ({
 
   return (
     <span className='relative flex items-center justify-center flex-shrink'>
-      <span className='z-10 text-2xl'>{percent * 100}%</span>
+      <span className='z-10 text-2xl'>{Math.round(percent * 100)}%</span>
       <svg
         height={width}
         width={width}
