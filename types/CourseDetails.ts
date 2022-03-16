@@ -16,6 +16,7 @@ export type LessonDetails = {
   name: string;
   id: string;
   imageUrl: string;
+  completed: boolean;
   lessonNumber: number;
   videoUrl: string;
 };
