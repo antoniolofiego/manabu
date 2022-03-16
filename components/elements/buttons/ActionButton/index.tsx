@@ -24,7 +24,7 @@ export const ActionButton: React.FC<iActionButtonProps> = ({
       onClick={clickHandler}
     >
       {loading ? (
-        <FaSpinner className='h-6 animate-spin' />
+        <FaSpinner className='h-6 animate-spin' data-testid='spinner' />
       ) : status ? (
         statusPrompt.trueState
       ) : (
