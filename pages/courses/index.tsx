@@ -10,17 +10,21 @@ import type { ICourse, ICourseGroup } from '@types';
 const CoursesPage: NextPage<ICourseGroup> = ({ courses }) => {
   const router = useRouter();
 
-  const [query, id] = router.asPath.split('?')[1].split('=');
-
   let filteredCourses = courses;
   let instructorName = '';
 
-  if (query === 'instructorId') {
-    filteredCourses = courses.filter((course) => course.instructor.id === id);
-    if (filteredCourses.length > 0) {
-      instructorName = filteredCourses[0].instructor.name;
-    } else {
-      filteredCourses = courses;
+  const queryParams = router.asPath.split('?');
+
+  if (queryParams.length > 1) {
+    const [query, id] = queryParams[1].split('=');
+
+    if (query === 'instructorId') {
+      filteredCourses = courses.filter((course) => course.instructor.id === id);
+      if (filteredCourses.length > 0) {
+        instructorName = filteredCourses[0].instructor.name;
+      } else {
+        filteredCourses = courses;
+      }
     }
   }
 
