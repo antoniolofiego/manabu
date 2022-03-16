@@ -4,5 +4,5 @@ export type {
   ICourseGroup,
   InstructorDetails,
   LessonDetails,
-} from './CourseDetails';
+} from './details';
 export type { LessonProgress } from './LessonProgress';
