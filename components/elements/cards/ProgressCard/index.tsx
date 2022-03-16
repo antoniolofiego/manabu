@@ -12,7 +12,7 @@ interface IProgressCardProps {
   lessonName: string;
   progress: number;
   url: string;
-  imageUrl?: string;
+  imageUrl: string;
 }
 
 export const ProgressCard: React.FC<IProgressCardProps> = ({
@@ -60,7 +60,7 @@ export const ProgressCard: React.FC<IProgressCardProps> = ({
           </Link>
           <h3 className='text-lg font-bold'>
             by{' '}
-            <Link href={`/instructors/${instructorID}`}>
+            <Link href={`/courses?instructorId=${instructorID}`}>
               <a className='text-lg transition dark:hover:text-gray-400 hover:text-gray-500'>
                 {instructor}
               </a>
