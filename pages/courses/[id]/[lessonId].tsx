@@ -88,6 +88,15 @@ export const getServerSideProps: GetServerSideProps = async ({
       return { notFound: true };
     }
 
+    if (progressData?.length === 0) {
+      return {
+        redirect: {
+          destination: `/courses/${courseId}`,
+          permanent: false,
+        },
+      };
+    }
+
     if (progressData) {
       const currentLessonData = lessonsData.filter(
         (lesson) => lesson.id === lessonId
