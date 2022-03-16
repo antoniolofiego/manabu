@@ -44,8 +44,6 @@ export const getStaticProps: GetStaticProps = async () => {
       };
     });
 
-    console.log(instructors);
-
     return {
       props: { instructors },
     };

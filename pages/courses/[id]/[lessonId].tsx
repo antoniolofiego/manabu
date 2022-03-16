@@ -81,8 +81,6 @@ export const getServerSideProps: GetServerSideProps = async ({
       .eq('user_id', user.id)
       .in('lesson_id', lessonIds);
 
-    console.log(progressData);
-
     if (progressError) {
       console.error(progressError);
       return { notFound: true };
