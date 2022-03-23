@@ -31,18 +31,23 @@ export const LessonGroup: React.FC<ILessonGroupProps> = ({
       </Link>
       <h3 className='text-3xl'>{`${currentLesson.lessonNumber}. ${currentLesson.name}`}</h3>
       <div className='relative flex flex-col w-full space-y-8 xl:space-y-0 xl:flex-row gap-x-8'>
-        <div className='flex flex-col items-end mx-auto space-y-8'>
-          <ReactPlayer
-            url={currentLesson.videoUrl}
-            playing={false}
-            controls={true}
-          />
+        <div className='flex flex-col items-end justify-center flex-1 w-full h-full mx-auto space-y-8'>
+          <div className='relative pt-[56.25%] mx-auto w-full h-full'>
+            <ReactPlayer
+              url={currentLesson.videoUrl}
+              playing={false}
+              controls={true}
+              width='100%'
+              height='100%'
+              className='absolute top-0 left-0 '
+            />
+          </div>
           <MarkAsCompleteButton
             lessonId={currentLesson.id}
             initialCompleted={currentLesson.completed}
           />
         </div>
-        <ul className='flex flex-col flex-1 space-y-4 '>
+        <ul className='flex flex-col space-y-4 xl:min-w-[35%]'>
           {allLessons.map((lesson) => {
             return (
               <LessonCard
