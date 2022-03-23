@@ -1,14 +1,17 @@
-import Layout from '@components/Layout';
-
 import '@styles/tailwind.css';
 
 import type { AppProps } from 'next/app';
+import UserProvider from '@context/user';
 
-function MyApp({ Component, pageProps }: AppProps) {
-	return (
-		<Layout>
-			<Component {...pageProps} />
-		</Layout>
-	);
+import { ThemeProvider } from 'next-themes';
+
+function App({ Component, pageProps }: AppProps) {
+  return (
+    <UserProvider>
+      <ThemeProvider attribute='class' defaultTheme='system'>
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </UserProvider>
+  );
 }
-export default MyApp;
+export default App;
